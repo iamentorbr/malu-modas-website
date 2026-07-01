@@ -5,12 +5,9 @@ import Link from "next/link"
 import { Menu, X, ShoppingBag, Search, User } from "lucide-react"
 
 const navLinks = [
-  { href: "#colecoes", label: "Colecoes" },
-  { href: "#novidades", label: "Novidades" },
-  { href: "/moda-intima", label: "Moda Intima" },
-  { href: "#lookbook", label: "Lookbook" },
   { href: "/blog", label: "Blog" },
-  { href: "#sobre", label: "Sobre" },
+  { href: "/campanhas", label: "Campanhas" },
+  { href: "/clubedamalu", label: "Club" },
   { href: "#contato", label: "Contato" },
 ]
 
@@ -32,7 +29,7 @@ export function Header() {
 
         {/* Desktop Nav Left */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Navegacao principal">
-          {navLinks.slice(0, 3).map((link) => (
+          {navLinks.slice(0, 2).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -55,7 +52,7 @@ export function Header() {
 
         {/* Desktop Nav Right */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.slice(3).map((link) => (
+          {navLinks.slice(2).map((link) => (
             <Link
               key={link.href}
               href={link.href}

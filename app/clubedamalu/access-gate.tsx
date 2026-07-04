@@ -19,7 +19,6 @@ const serif = "var(--font-cormorant), Georgia, serif"
 const sans = "var(--font-manrope), system-ui, sans-serif"
 
 const STORAGE_KEY = "malu_club_access"
-const WA_NUMBER = "5518997453135"
 
 /* Formats a Brazilian phone number as the user types */
 function maskPhone(v: string) {
@@ -90,13 +89,6 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
         JSON.stringify({ nome: n, whats: digits, authorized: true, at: Date.now() }),
       )
     } catch {}
-
-    // Envia o cadastro para o WhatsApp da MALU
-    const msg =
-      `Oi Malu! Quero ACESSAR O CLUBE DA MALU 💛\n\n` +
-      `Nome: ${n}\nWhatsApp: ${maskPhone(whats)}\n\n` +
-      `Autorizo o envio de mensagens, mídias e minha inclusão no grupo secreto das amigas da Malu.`
-    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank")
 
     setSaving(false)
     setUnlocked(true)

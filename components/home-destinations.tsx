@@ -13,9 +13,9 @@ const destinations = [
     description: "Vantagens exclusivas para nossas clientes mais queridas.",
   },
   {
-    href: "/blog",
-    label: "Blog",
-    description: "Dicas de moda, tendências e inspirações de estilo.",
+    href: "/shop",
+    label: "Shop",
+    description: "Compre as peças da MALU direto pela nossa loja online.",
   },
 ]
 

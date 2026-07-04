@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Menu, X, ShoppingBag, Search, User } from "lucide-react"
 
 const navLinks = [
-  { href: "/blog", label: "Blog" },
+  { href: "/shop", label: "Shop" },
   { href: "/campanhas", label: "Campanhas" },
   { href: "/clubedamalu", label: "Club" },
   { href: "#contato", label: "Contato" },

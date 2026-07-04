@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useEffect, useState } from "react"
+import { createClient } from "@/lib/supabase/client"
 
 const C = {
   bg: "#f6f1e9",
@@ -39,6 +40,8 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
   const [errNome, setErrNome] = useState("")
   const [errWhats, setErrWhats] = useState("")
   const [errAuth, setErrAuth] = useState("")
+  const [saving, setSaving] = useState(false)
+  const [errSave, setErrSave] = useState("")
 
   useEffect(() => {
     try {
@@ -47,7 +50,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
     setChecking(false)
   }, [])
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     const n = nome.trim()
     const digits = whats.replace(/\D/g, "")
@@ -60,7 +63,26 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
     setErrNome(eN)
     setErrWhats(eW)
     setErrAuth(eA)
+    setErrSave("")
     if (eN || eW || eA) return
+
+    setSaving(true)
+
+    // Salva o cadastro no Supabase
+    try {
+      const supabase = createClient()
+      const { error } = await supabase.from("clube_da_malu_membros").insert({
+        nome: n,
+        whatsapp: digits,
+        autorizou: true,
+      })
+      if (error) throw error
+    } catch (err) {
+      console.log("[v0] Erro ao salvar cadastro do clube:", err)
+      setErrSave("Não conseguimos salvar seu cadastro agora. Tente novamente em instantes.")
+      setSaving(false)
+      return
+    }
 
     try {
       localStorage.setItem(
@@ -76,6 +98,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
       `Autorizo o envio de mensagens, mídias e minha inclusão no grupo secreto das amigas da Malu.`
     window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`, "_blank")
 
+    setSaving(false)
     setUnlocked(true)
   }
 
@@ -270,6 +293,7 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
 
           <button
             type="submit"
+            disabled={saving}
             style={{
               width: "100%",
               marginTop: 20,
@@ -285,12 +309,14 @@ export default function AccessGate({ children }: { children: React.ReactNode }) 
               padding: "17px 24px",
               borderRadius: 100,
               border: "none",
-              cursor: "pointer",
+              cursor: saving ? "wait" : "pointer",
+              opacity: saving ? 0.7 : 1,
             }}
           >
-            Acessar o Clube
-            <span style={{ fontSize: 17 }}>→</span>
+            {saving ? "Liberando seu acesso..." : "Acessar o Clube"}
+            {!saving && <span style={{ fontSize: 17 }}>→</span>}
           </button>
+          {errSave && <p style={{ ...errStyle, textAlign: "center" }}>{errSave}</p>}
 
           <p
             style={{

@@ -208,26 +208,6 @@ const pillars = [
 /* ---------- component ---------- */
 export default function ClubeDaMalu() {
   const cd = useCountdown()
-  const [nome, setNome] = useState("")
-  const [whats, setWhats] = useState("")
-  const [errNome, setErrNome] = useState("")
-  const [errWhats, setErrWhats] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const [successName, setSuccessName] = useState("")
-
-  const onSubmit = () => {
-    const n = nome.trim()
-    const digits = whats.replace(/\D/g, "")
-    let eN = ""
-    let eW = ""
-    if (n.length < 2) eN = "Conta pra gente como te chamar 💛"
-    if (digits.length < 10 || digits.length > 13) eW = "Digite um WhatsApp válido com DDD."
-    setErrNome(eN)
-    setErrWhats(eW)
-    if (eN || eW) return
-    setSuccessName(n.split(" ")[0])
-    setSubmitted(true)
-  }
 
   return (
     <div style={{ background: C.bg, color: C.ink, fontFamily: sans, minHeight: "100vh" }}>
@@ -276,7 +256,9 @@ export default function ClubeDaMalu() {
               Regras das campanhas
             </a>
             <a
-              href="#lista"
+              href={waMain}
+              target="_blank"
+              rel="noopener noreferrer"
               style={{
                 textDecoration: "none",
                 display: "inline-flex",
@@ -290,7 +272,7 @@ export default function ClubeDaMalu() {
                 borderRadius: 100,
               }}
             >
-              Entrar para a lista
+              Falar com a Malu
             </a>
           </div>
         </div>
@@ -363,7 +345,9 @@ export default function ClubeDaMalu() {
                 Ver peças selecionadas <span style={{ fontSize: 17 }}>→</span>
               </a>
               <a
-                href="#lista"
+                href={waMain}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   textDecoration: "none",
                   display: "inline-flex",
@@ -375,7 +359,7 @@ export default function ClubeDaMalu() {
                   borderBottom: `1.5px solid ${C.gold}`,
                 }}
               >
-                Entrar para a lista
+                Falar com a Malu
               </a>
             </div>
             <div style={{ marginTop: 40, display: "flex", alignItems: "center", gap: 14 }}>
@@ -731,140 +715,6 @@ export default function ClubeDaMalu() {
               organização — de amiga pra amiga. Dúvidas? Chama a Malu no WhatsApp.
             </p>
           </Reveal>
-        </div>
-      </section>
-
-      {/* CAPTURA */}
-      <section id="lista" style={{ background: C.ink, color: C.bg, padding: "clamp(64px,8vw,112px) clamp(18px,5vw,56px)" }}>
-        <div style={{ maxWidth: 620, margin: "0 auto", textAlign: "center" }}>
-          <Reveal>
-            <span style={{ fontSize: 11, letterSpacing: ".28em", textTransform: "uppercase", color: C.goldLight, fontWeight: 600 }}>Lista das amigas</span>
-            <h2 style={{ fontFamily: serif, fontWeight: 600, fontSize: "clamp(32px,5.5vw,56px)", lineHeight: 1.04, letterSpacing: "-.01em", margin: "18px 0 18px" }}>
-              Quer receber primeiro?
-            </h2>
-            <p style={{ fontSize: "clamp(15px,1.8vw,18px)", lineHeight: 1.65, color: "rgba(246,241,233,.66)", margin: "0 auto 40px", maxWidth: 480 }}>
-              Entre para o Clube da Malu e receba campanhas exclusivas, novidades e peças selecionadas antes de todo
-              mundo.
-            </p>
-          </Reveal>
-
-          {!submitted ? (
-            <Reveal
-              style={{
-                textAlign: "left",
-                background: "rgba(246,241,233,.04)",
-                border: "1px solid rgba(246,241,233,.14)",
-                borderRadius: 14,
-                padding: "clamp(24px,4vw,38px)",
-              }}
-            >
-              <label style={{ display: "block", fontSize: 12, letterSpacing: ".14em", textTransform: "uppercase", color: C.goldLight, fontWeight: 600, marginBottom: 8 }}>
-                Nome
-              </label>
-              <input
-                value={nome}
-                onChange={(e) => {
-                  setNome(e.target.value)
-                  setErrNome("")
-                }}
-                placeholder="Como as amigas te chamam"
-                style={{
-                  width: "100%",
-                  background: "rgba(246,241,233,.06)",
-                  border: `1.5px solid ${errNome ? "#e79aa4" : "rgba(246,241,233,.18)"}`,
-                  borderRadius: 10,
-                  padding: "15px 16px",
-                  fontSize: 15,
-                  color: C.bg,
-                  fontFamily: sans,
-                }}
-              />
-              {errNome && <span style={{ display: "block", fontSize: 12.5, color: "#e79aa4", marginTop: 7 }}>{errNome}</span>}
-
-              <label style={{ display: "block", fontSize: 12, letterSpacing: ".14em", textTransform: "uppercase", color: C.goldLight, fontWeight: 600, margin: "22px 0 8px" }}>
-                WhatsApp
-              </label>
-              <input
-                value={whats}
-                onChange={(e) => {
-                  setWhats(e.target.value)
-                  setErrWhats("")
-                }}
-                inputMode="tel"
-                placeholder="(00) 00000-0000"
-                style={{
-                  width: "100%",
-                  background: "rgba(246,241,233,.06)",
-                  border: `1.5px solid ${errWhats ? "#e79aa4" : "rgba(246,241,233,.18)"}`,
-                  borderRadius: 10,
-                  padding: "15px 16px",
-                  fontSize: 15,
-                  color: C.bg,
-                  fontFamily: sans,
-                }}
-              />
-              {errWhats && <span style={{ display: "block", fontSize: 12.5, color: "#e79aa4", marginTop: 7 }}>{errWhats}</span>}
-
-              <button
-                onClick={onSubmit}
-                style={{
-                  width: "100%",
-                  marginTop: 26,
-                  background: C.goldLight,
-                  color: C.ink,
-                  border: "none",
-                  fontFamily: sans,
-                  fontSize: 15.5,
-                  fontWeight: 700,
-                  padding: 17,
-                  borderRadius: 100,
-                  cursor: "pointer",
-                }}
-              >
-                Quero entrar para a lista
-              </button>
-              <p style={{ fontSize: 11.5, color: "rgba(246,241,233,.45)", textAlign: "center", margin: "16px 0 0" }}>
-                Sem spam. Só as melhores oportunidades da MALU.
-              </p>
-            </Reveal>
-          ) : (
-            <div
-              style={{
-                textAlign: "center",
-                background: "rgba(201,169,106,.1)",
-                border: "1px solid rgba(201,169,106,.35)",
-                borderRadius: 14,
-                padding: "clamp(30px,5vw,46px)",
-              }}
-            >
-              <div style={{ width: 56, height: 56, borderRadius: "50%", background: C.goldLight, color: C.ink, fontSize: 28, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px" }}>
-                ✓
-              </div>
-              <h3 style={{ fontFamily: serif, fontWeight: 700, fontSize: 30, margin: "0 0 10px", color: C.bg }}>{successName}, você está dentro! 💛</h3>
-              <p style={{ fontSize: 15, lineHeight: 1.6, color: "rgba(246,241,233,.7)", margin: "0 auto 26px", maxWidth: 400 }}>
-                Você entrou para o Clube da Malu. Chame a Malu agora no WhatsApp para já garantir as peças selecionadas.
-              </p>
-              <a
-                href={waMain}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  textDecoration: "none",
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 10,
-                  background: C.wa,
-                  color: "#fff",
-                  fontSize: 15,
-                  fontWeight: 700,
-                  padding: "15px 30px",
-                  borderRadius: 100,
-                }}
-              >
-                Falar com a Malu no WhatsApp
-              </a>
-            </div>
-          )}
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import ClubeDaMalu from "./clube-da-malu"
+import AccessGate from "./access-gate"
 
 export const metadata: Metadata = {
   title: "Clube da Malu | Campanhas exclusivas da MALU MODAS",
@@ -8,5 +9,9 @@ export const metadata: Metadata = {
 }
 
 export default function Page() {
-  return <ClubeDaMalu />
+  return (
+    <AccessGate>
+      <ClubeDaMalu />
+    </AccessGate>
+  )
 }

@@ -7,6 +7,7 @@ import { Menu, X, Search, User } from "lucide-react"
 const navLinks = [
   { href: "/shop", label: "Shop" },
   { href: "/campanhas", label: "Campanhas" },
+  { href: "/sacola-amiga", label: "Sacola Amiga" },
   { href: "/clubedamalu", label: "Club" },
   { href: "#contato", label: "Contato" },
 ]
@@ -29,7 +30,7 @@ export function Header() {
 
         {/* Desktop Nav Left */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Navegacao principal">
-          {navLinks.slice(0, 2).map((link) => (
+          {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.href}
               href={link.href}

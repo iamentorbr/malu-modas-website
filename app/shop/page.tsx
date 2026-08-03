@@ -1,19 +1,13 @@
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { ProductCard } from "@/components/shop/product-card"
-import { getProducts } from "@/lib/shopify"
 
 export const metadata = {
   title: "Shop | MALU MODAS",
   description: "Compre as peças da MALU MODAS direto pela nossa loja online. Moda feminina plus size com curadoria de amiga pra amiga.",
 }
 
-export const revalidate = 60
-
-export default async function ShopPage() {
-  const products = await getProducts(24)
-
+export default function ShopPage() {
   return (
     <main>
       <AnnouncementBar />
@@ -32,20 +26,12 @@ export default async function ShopPage() {
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-12 lg:py-16">
-        {products.length > 0 ? (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
-        ) : (
-          <div className="mx-auto max-w-md rounded-sm border border-border bg-background p-10 text-center">
-            <h2 className="font-serif text-xl text-foreground">Em breve na loja</h2>
-            <p className="mt-3 font-sans text-sm leading-relaxed text-muted-foreground text-pretty">
-              Estamos preparando nossa vitrine online. Volte em breve para conferir as novidades da MALU.
-            </p>
-          </div>
-        )}
+        <div className="mx-auto max-w-md rounded-sm border border-border bg-background p-10 text-center">
+          <h2 className="font-serif text-xl text-foreground">Em breve na loja</h2>
+          <p className="mt-3 font-sans text-sm leading-relaxed text-muted-foreground text-pretty">
+            Estamos preparando nossa vitrine online. Volte em breve para conferir as novidades da MALU.
+          </p>
+        </div>
       </section>
 
       <Footer />

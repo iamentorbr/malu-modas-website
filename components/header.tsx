@@ -4,13 +4,17 @@ import { useState } from "react"
 import Link from "next/link"
 import { Menu, X, Search, User } from "lucide-react"
 
-const navLinks = [
+const navLinksLeft = [
   { href: "/shop", label: "Shop" },
-  { href: "/campanhas", label: "Campanhas" },
   { href: "/sacola-amiga", label: "Sacola Amiga" },
+]
+
+const navLinksRight = [
   { href: "/clubedamalu", label: "Club" },
   { href: "#contato", label: "Contato" },
 ]
+
+const navLinks = [...navLinksLeft, ...navLinksRight]
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -30,7 +34,7 @@ export function Header() {
 
         {/* Desktop Nav Left */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Navegacao principal">
-          {navLinks.slice(0, 3).map((link) => (
+          {navLinksLeft.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -53,7 +57,7 @@ export function Header() {
 
         {/* Desktop Nav Right */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinks.slice(2).map((link) => (
+          {navLinksRight.map((link) => (
             <Link
               key={link.href}
               href={link.href}

@@ -3,8 +3,9 @@
 import { useState, useTransition, useCallback } from "react"
 import {
   Search, ShoppingBag, Phone, MapPin, Tag, Calendar,
-  Pencil, Trash2, X, Check, LogOut,
+  Pencil, Trash2, X, Check, LogOut, Users,
 } from "lucide-react"
+import GerenciarVendedoras from "./gerenciar-vendedoras"
 import { listarCadastros, atualizarCadastro, deletarCadastro } from "@/app/sacola-amiga/actions"
 import {
   TAMANHOS, TIPOS_ROUPA, CORES, ESTILOS, DIAS_SEMANA, HORARIOS, COMO_CHEGOU,
@@ -241,6 +242,7 @@ function ModalEdicao({ cliente, onClose, onSalvo }: {
 }
 
 export default function PainelAdmin({ onLogout }: { onLogout: () => void }) {
+  const [aba, setAba] = useState<"clientes" | "vendedoras">("clientes")
   const [busca, setBusca] = useState("")
   const [clientes, setClientes] = useState<SacolaAmiga[]>([])
   const [carregado, setCarregado] = useState(false)
@@ -284,25 +286,48 @@ export default function PainelAdmin({ onLogout }: { onLogout: () => void }) {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-20 border-b border-border bg-background/95 backdrop-blur-sm">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5">
-            <ShoppingBag className="h-5 w-5 text-accent" />
-            <div>
-              <span className="font-serif text-base text-foreground">Sacola Amiga</span>
-              <span className="ml-2 inline-block px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-[9px] font-bold uppercase tracking-widest">
-                Admin
-              </span>
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <div className="h-14 flex items-center justify-between gap-4">
+            <div className="flex items-center gap-2.5">
+              <ShoppingBag className="h-5 w-5 text-accent" />
+              <div>
+                <span className="font-serif text-base text-foreground">Sacola Amiga</span>
+                <span className="ml-2 inline-block px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-[9px] font-bold uppercase tracking-widest">
+                  Admin
+                </span>
+              </div>
             </div>
+            <button type="button" onClick={onLogout}
+              className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
+              <LogOut className="h-3.5 w-3.5" />
+              <span className="hidden sm:inline">Sair</span>
+            </button>
           </div>
-          <button type="button" onClick={onLogout}
-            className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors">
-            <LogOut className="h-3.5 w-3.5" />
-            <span className="hidden sm:inline">Sair</span>
-          </button>
+          {/* Abas */}
+          <div className="flex gap-0 -mb-px">
+            <button type="button" onClick={() => setAba("clientes")}
+              className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold border-b-2 transition-colors
+                ${aba === "clientes"
+                  ? "border-accent text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground"}`}>
+              <ShoppingBag className="h-3.5 w-3.5" />
+              Clientes
+            </button>
+            <button type="button" onClick={() => setAba("vendedoras")}
+              className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold border-b-2 transition-colors
+                ${aba === "vendedoras"
+                  ? "border-accent text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground"}`}>
+              <Users className="h-3.5 w-3.5" />
+              Vendedoras
+            </button>
+          </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-4xl px-4 sm:px-6 py-8 space-y-6">
+        {aba === "vendedoras" && <GerenciarVendedoras />}
+        {aba === "clientes" && <>
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div className="rounded-sm border border-border bg-card px-5 py-4">
@@ -471,6 +496,7 @@ export default function PainelAdmin({ onLogout }: { onLogout: () => void }) {
             })}
           </div>
         )}
+        </>}
       </main>
 
       {/* Modal de edição */}

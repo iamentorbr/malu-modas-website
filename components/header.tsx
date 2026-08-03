@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X, ShoppingBag, Search, User } from "lucide-react"
+import { Menu, X, Search, User } from "lucide-react"
 
 const navLinks = [
   { href: "/shop", label: "Shop" },
@@ -70,12 +70,6 @@ export function Header() {
           </button>
           <button type="button" aria-label="Minha conta" className="text-foreground hover:text-accent transition-colors hidden lg:block">
             <User className="h-5 w-5" />
-          </button>
-          <button type="button" aria-label="Sacola de compras" className="text-foreground hover:text-accent transition-colors relative">
-            <ShoppingBag className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
-              0
-            </span>
           </button>
         </div>
       </div>

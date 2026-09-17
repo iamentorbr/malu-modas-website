@@ -13,7 +13,7 @@ const destinations = [
     description: "Vantagens exclusivas para nossas clientes mais queridas.",
   },
   {
-    href: "/shop",
+    href: "https://malumodas.clipp.com.br",
     label: "Shop",
     description: "Compre as peças da MALU direto pela nossa loja online.",
   },

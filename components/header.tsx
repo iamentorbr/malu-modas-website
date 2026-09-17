@@ -5,7 +5,7 @@ import Link from "next/link"
 import { Menu, X, Search, User } from "lucide-react"
 
 const navLinksLeft = [
-  { href: "/shop", label: "Shop" },
+  { href: "https://malumodas.clipp.com.br", label: "Shop" },
   { href: "/sacola-amiga", label: "Sacola Amiga" },
 ]
 

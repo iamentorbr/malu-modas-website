@@ -2,10 +2,11 @@
 
 export function AnnouncementBar() {
   const messages = [
-    "Colecoes renovadas com as melhores marcas",
-    "Parcele no cartao sem juros",
-    "5% OFF na primeira compra",
-    "CLUBE DA MALU para as Melhores Amigas da Malu",
+    "Todas as pecas por R$ 49,90 - Amigas da Malu",
+    "Frete gratis para Adamantina e regiao",
+    "Novas colecoes toda semana",
+    "Parcele em ate 6x sem juros",
+    "10% OFF na primeira compra",
   ]
 
   return (

@@ -3,24 +3,24 @@ import Link from "next/link"
 import { ArrowLeft, Heart, Phone, Sparkles, Truck } from "lucide-react"
 
 export const metadata = {
-  title: "Moda Intima | MALU MODAS",
+  title: "Moda Íntima | MALU MODAS",
   description:
-    "Lingerie, pijamas e basicos com conforto e elegancia. Pecas selecionadas para valorizar todos os corpos na MALU MODAS, Adamantina - SP.",
+    "Lingerie, pijamas e básicos com conforto e elegância. Peças selecionadas para valorizar todos os corpos na MALU MODAS, Adamantina - SP.",
 }
 
 const categorias = [
   {
-    nome: "Sutias",
-    descricao: "Modelos com renda, sem aro e bojo para sustentacao e conforto.",
+    nome: "Sutiãs",
+    descricao: "Modelos com renda, sem aro e bojo para sustentação e conforto.",
     image: "/images/intima-conjuntos.png",
   },
   {
     nome: "Calcinhas",
-    descricao: "Do fio dental a cintura alta, em tecidos macios e confortaveis.",
+    descricao: "Do fio-dental à cintura alta, em tecidos macios e confortáveis.",
     image: "/images/intima-pijamas.png",
   },
   {
-    nome: "Pecas Modeladoras",
+    nome: "Peças Modeladoras",
     descricao: "Cintas e modeladores que valorizam a silhueta com naturalidade.",
     image: "/images/intima-basicos.png",
   },
@@ -30,12 +30,12 @@ const diferenciais = [
   {
     icon: Heart,
     titulo: "Para Todos os Corpos",
-    texto: "Numeracoes do PP ao plus size, porque toda mulher merece se sentir bem.",
+    texto: "Numerações do PP ao plus size, porque toda mulher merece se sentir bem.",
   },
   {
     icon: Sparkles,
     titulo: "Curadoria Especial",
-    texto: "Selecionamos pecas com tecidos de qualidade e acabamento impecavel.",
+    texto: "Selecionamos peças com tecidos de qualidade e acabamento impecável.",
   },
   {
     icon: Truck,
@@ -66,15 +66,15 @@ export default function ModaIntimaPage() {
           <div className="flex items-center justify-center px-6 py-16 lg:py-28 order-2 lg:order-1">
             <div className="max-w-md">
               <p className="text-sm tracking-[0.2em] text-accent uppercase mb-4">
-                Colecao Intima
+                Coleção Íntima
               </p>
               <h1 className="font-serif text-4xl lg:text-5xl text-foreground mb-6 text-balance leading-tight">
-                Conforto e elegancia mais perto de voce
+                Conforto e elegância mais perto de você
               </h1>
               <p className="text-muted-foreground text-pretty leading-relaxed mb-8">
-                Lingerie, pijamas e basicos selecionados com carinho para
-                valorizar a sua beleza natural. Pecas que abracam o seu corpo
-                com delicadeza e sofisticacao.
+                Lingerie, pijamas e básicos selecionados com carinho para
+                valorizar a sua beleza natural. Peças que abraçam o seu corpo
+                com delicadeza e sofisticação.
               </p>
               <a
                 href="https://wa.me/5518997453135"
@@ -90,7 +90,7 @@ export default function ModaIntimaPage() {
           <div className="relative aspect-[4/5] lg:aspect-auto lg:min-h-[600px] order-1 lg:order-2">
             <Image
               src="/images/intima-hero.png"
-              alt="Modelo usando lingerie elegante da colecao intima da MALU MODAS"
+              alt="Modelo usando lingerie elegante da coleção íntima da MALU MODAS"
               fill
               priority
               className="object-cover"
@@ -107,7 +107,7 @@ export default function ModaIntimaPage() {
               Categorias
             </p>
             <h2 className="font-serif text-3xl lg:text-4xl text-foreground text-balance">
-              Encontre a peca perfeita
+              Encontre a peça perfeita
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -156,10 +156,10 @@ export default function ModaIntimaPage() {
       <section className="py-16 lg:py-24 text-center">
         <div className="container mx-auto px-4 max-w-2xl">
           <h2 className="font-serif text-3xl lg:text-4xl text-foreground mb-6 text-balance">
-            Atendimento personalizado para voce
+            Atendimento personalizado para você
           </h2>
           <p className="text-muted-foreground mb-8 text-pretty leading-relaxed">
-            Tem duvidas sobre tamanho ou quer ajuda para escolher? Fale com a
+            Tem dúvidas sobre tamanho ou quer ajuda para escolher? Fale com a
             gente pelo WhatsApp ou visite nossa loja em Adamantina.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">

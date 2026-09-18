@@ -2,19 +2,17 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Menu, X, Search, User } from "lucide-react"
+import { Menu, X, ShoppingBag, Search, User } from "lucide-react"
 
-const navLinksLeft = [
-  { href: "https://malumodas.clipp.com.br", label: "Shop" },
-  { href: "/sacola-amiga", label: "Sacola Amiga" },
-]
-
-const navLinksRight = [
-  { href: "/clubedamalu", label: "Club" },
+const navLinks = [
+  { href: "#colecoes", label: "Colecoes" },
+  { href: "#novidades", label: "Novidades" },
+  { href: "/moda-intima", label: "Moda Intima" },
+  { href: "#lookbook", label: "Lookbook" },
+  { href: "/blog", label: "Blog" },
+  { href: "#sobre", label: "Sobre" },
   { href: "#contato", label: "Contato" },
 ]
-
-const navLinks = [...navLinksLeft, ...navLinksRight]
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -34,7 +32,7 @@ export function Header() {
 
         {/* Desktop Nav Left */}
         <nav className="hidden lg:flex items-center gap-8" aria-label="Navegacao principal">
-          {navLinksLeft.map((link) => (
+          {navLinks.slice(0, 3).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -57,7 +55,7 @@ export function Header() {
 
         {/* Desktop Nav Right */}
         <nav className="hidden lg:flex items-center gap-8">
-          {navLinksRight.map((link) => (
+          {navLinks.slice(3).map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -75,6 +73,12 @@ export function Header() {
           </button>
           <button type="button" aria-label="Minha conta" className="text-foreground hover:text-accent transition-colors hidden lg:block">
             <User className="h-5 w-5" />
+          </button>
+          <button type="button" aria-label="Sacola de compras" className="text-foreground hover:text-accent transition-colors relative">
+            <ShoppingBag className="h-5 w-5" />
+            <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-[10px] font-bold rounded-full h-4 w-4 flex items-center justify-center">
+              0
+            </span>
           </button>
         </div>
       </div>

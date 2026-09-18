@@ -92,6 +92,20 @@ const articles = {
 
 type Slug = keyof typeof articles
 
+const zodiacCards = [
+  ["Áries", "/magazine/signo-aries.png", "Maiô de recortes ou biquíni vibrante. Proteja a pele e reserve energia para novas aventuras. A primavera-verão traz movimento; a MALU acompanha com peças marcantes e práticas."],
+  ["Touro", "/magazine/signo-touro.png", "Maiô estruturado ou biquíni de cintura alta. Priorize conforto, hidratação e tempo sem pressa. A estação favorece prazer e estabilidade; a MALU escolhe caimentos gostosos e duráveis."],
+  ["Gêmeos", "/magazine/signo-gemeos.png", "Biquíni versátil com saída de praia. Alterne sol e sombra e hidrate-se. Convites e mudanças movimentam o verão; a MALU cria combinações para cada história."],
+  ["Câncer", "/magazine/signo-cancer.png", "Maiô delicado ou top confortável. Crie um ritual de autocuidado e acolhimento. Reencontros aquecem a estação; a MALU cuida dos detalhes para você se sentir em casa."],
+  ["Leão", "/magazine/signo-leao.png", "Biquíni metalizado ou maiô de presença. Use proteção solar e lembre-se de descansar. Celebrações pedem brilho; a MALU encontra a peça protagonista para você aparecer."],
+  ["Virgem", "/magazine/signo-virgem.png", "Maiô minimalista ou biquíni de linhas limpas. Organize pausas e proteção. A primavera-verão pede escolhas melhores; a MALU traduz seu critério em peças bem pensadas."],
+  ["Libra", "/magazine/signo-libra.png", "Biquíni elegante com saída coordenada. Equilibre exposição e descanso. Parcerias e encontros ganham harmonia; a MALU compõe beleza com leveza."],
+  ["Escorpião", "/magazine/signo-escorpiao.png", "Maiô marcante ou biquíni em tons profundos. Respeite seus limites e sua intimidade. Transformações ganham força; a MALU acompanha sua intensidade com autenticidade."],
+  ["Sagitário", "/magazine/signo-sagitario.png", "Biquíni esportivo ou maiô para movimento. Cuide do corpo que leva você longe. Viagens ampliam horizontes; a MALU escolhe versatilidade da areia ao próximo destino."],
+  ["Capricórnio", "/magazine/signo-capricornio.png", "Maiô clássico ou biquíni de modelagem precisa. Planeje pausas reais. Reconhecimento e construção chegam com calma; a MALU oferece peças atemporais e confiáveis."],
+  ["Aquário", "/magazine/signo-aquario.png", "Biquíni assimétrico ou maiô autoral. Experimente sem comparação. Ideias novas e uma temporada fora do padrão vêm pela frente; a MALU abre espaço para sua individualidade."],
+  ["Peixes", "/magazine/signo-peixes.png", "Biquíni fluido ou maiô em tons suaves. Hidrate-se e proteja sua sensibilidade. Romance e inspiração chegam com o verão; a MALU acolhe seu imaginário com delicadeza."],
+] as const
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -122,11 +136,19 @@ export default async function MateriaPage({ params }: { params: Promise<{ slug: 
               <p className="text-xs font-bold uppercase tracking-[.25em] text-[#d72f39]">Primavera-verão 2026</p>
               <h2 id="guia-signos-titulo" className="mt-3 font-serif text-4xl leading-none sm:text-5xl">O que a moda praia pede para cada signo</h2>
               <p className="mt-5 text-base leading-relaxed text-[#211b18]/70">Um pequeno mapa para escolher sua peça, cuidar de si e receber a nova estação com a curadoria da MALU.</p>
-              <div className="mt-8 grid items-start gap-8 border-2 border-[#211b18] bg-[#f0d9c4] p-5 sm:grid-cols-[180px_1fr] sm:p-7">
-                <div className="relative aspect-[3/4] overflow-hidden border-2 border-[#211b18]">
-                  <Image src="/magazine/horoscopo-signo-praia.png" alt="Mulher usando moda praia diante do mar" fill sizes="180px" className="object-cover" />
-                </div>
-                <p className="font-serif text-lg leading-relaxed sm:text-xl">Para <strong>Áries</strong>, a primavera-verão pede um maiô de recortes ou um biquíni vibrante, com proteção solar e espaço para novas aventuras. <strong>Touro</strong> encontra conforto no maiô estruturado ou no biquíni de cintura alta, enquanto <strong>Gêmeos</strong> pode apostar em um biquíni versátil com saída de praia para acompanhar convites inesperados. <strong>Câncer</strong> floresce em um maiô delicado e acolhedor; <strong>Leão</strong> ganha presença com brilho e cor; e <strong>Virgem</strong> combina com linhas limpas e escolhas práticas. Para <strong>Libra</strong>, a harmonia aparece no biquíni coordenado; <strong>Escorpião</strong> pede um maiô marcante e tons profundos; <strong>Sagitário</strong> precisa de liberdade em um biquíni esportivo ou maiô de movimento. <strong>Capricórnio</strong> encontra segurança em modelagens clássicas, <strong>Aquário</strong> se expressa em formas assimétricas e autorais, e <strong>Peixes</strong> pode escolher texturas suaves e fluidas. Em todos os signos, a estação convida ao autocuidado, a pausas reais e a encontros mais presentes. A curadoria da MALU combina com esse momento porque transforma personalidade em escolha: peças pensadas para a sua rotina, para o seu corpo e para a mulher que você está se tornando.</p>
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                {zodiacCards.map(([sign, image, text], index) => (
+                  <article key={sign} className={`grid items-start gap-5 border-2 border-[#211b18] p-4 sm:grid-cols-[120px_1fr] sm:p-5 ${index % 3 === 0 ? "bg-[#f0d9c4]" : index % 3 === 1 ? "bg-[#e7dced]" : "bg-[#f1c8ce]"}`}>
+                    <div className="relative aspect-[3/4] overflow-hidden border-2 border-[#211b18]">
+                      <Image src={image} alt={`Mulher representando ${sign} na moda praia 2026`} fill sizes="120px" className="object-cover" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-bold uppercase tracking-[.2em] text-[#d72f39]">Moda praia 2026</p>
+                      <h3 className="mt-2 font-serif text-3xl">{sign}</h3>
+                      <p className="mt-3 text-sm leading-relaxed">{text}</p>
+                    </div>
+                  </article>
+                ))}
               </div>
             </section>
           )}

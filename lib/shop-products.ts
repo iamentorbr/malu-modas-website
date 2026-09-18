@@ -32,10 +32,10 @@ export const shopProducts: ShopProduct[] = [
   { slug: "biquini-floral-colorido", name: "Biquíni floral colorido", price: "R$ 49,90", image: "/products/biquini-floral-colorido.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-azul-listrado", name: "Biquíni azul listrado", price: "R$ 49,90", image: "/products/biquini-azul-listrado.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-pink-laranja", name: "Biquíni pink e laranja", price: "R$ 49,90", image: "/products/biquini-pink-laranja.png", category: "Moda praia", type: "Biquínis" },
-  { slug: "biquini-zebra-rosas", name: "Biquíni zebra com rosas", price: "R$ 49,90", image: "/products/biquini-zebra-rosas.png", category: "Moda praia", type: "Biquínis" },
-  { slug: "biquini-vermelho-poa", name: "Biquíni vermelho de poá", price: "R$ 49,90", image: "/products/biquini-vermelho-poa.png", category: "Moda praia", type: "Biquínis" },
-  { slug: "biquini-vermelho-preto-floral", name: "Biquíni floral vermelho e preto", price: "R$ 49,90", image: "/products/biquini-vermelho-preto-floral.png", category: "Moda praia", type: "Biquínis" },
-  { slug: "biquini-azul-ursinho", name: "Biquíni azul ursinho", price: "R$ 49,90", image: "/products/biquini-azul-ursinho.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-zebra-rosas", name: "Biquíni pink e laranja", price: "R$ 49,90", image: "/products/biquini-zebra-rosas.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-vermelho-poa", name: "Biquíni floral colorido", price: "R$ 49,90", image: "/products/biquini-vermelho-poa.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-vermelho-preto-floral", name: "Biquíni zebra com rosas", price: "R$ 49,90", image: "/products/biquini-vermelho-preto-floral.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-azul-ursinho", name: "Biquíni azul estampado", price: "R$ 49,90", image: "/products/biquini-azul-ursinho.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-amarelo-abelhas", name: "Biquíni amarelo abelhas", price: "R$ 49,90", image: "/products/biquini-amarelo-abelhas.png", category: "Moda praia", type: "Biquínis" },
 ]
 

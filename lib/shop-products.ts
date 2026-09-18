@@ -14,6 +14,18 @@ export const shopProducts: ShopProduct[] = [
   { slug: "biquini-azul", name: "Biquíni azul intenso", price: "R$ 49,90", image: "/products/biquini-azul.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-laranja", name: "Biquíni laranja solar", price: "R$ 49,90", image: "/products/biquini-laranja.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-preto-laranja", name: "Biquíni preto e laranja", price: "R$ 49,90", image: "/products/biquini-preto-laranja.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-amarelo-paisagem", name: "Biquíni amarelo paisagem", price: "R$ 49,90", image: "/products/biquini-amarelo-paisagem.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-paisagem-colorida", name: "Biquíni paisagem colorida", price: "R$ 49,90", image: "/products/biquini-paisagem-colorida.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-floral-vermelho", name: "Biquíni floral vermelho", price: "R$ 49,90", image: "/products/biquini-floral-vermelho.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-teal-estampado", name: "Biquíni azul petróleo estampado", price: "R$ 49,90", image: "/products/biquini-teal-estampado.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-tie-dye", name: "Biquíni tie-dye marrom", price: "R$ 49,90", image: "/products/biquini-tie-dye.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-laranja-medalhoes", name: "Biquíni laranja medalhões", price: "R$ 49,90", image: "/products/biquini-laranja-medalhoes.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-preto-laranja-2", name: "Biquíni preto e laranja clássico", price: "R$ 49,90", image: "/products/biquini-preto-laranja-2.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-azul-peixes", name: "Biquíni azul peixes", price: "R$ 49,90", image: "/products/biquini-azul-peixes.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-animal-print", name: "Biquíni animal print", price: "R$ 49,90", image: "/products/biquini-animal-print.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-rosa-canelado", name: "Biquíni rosa canelado", price: "R$ 49,90", image: "/products/biquini-rosa-canelado.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-tie-dye-2", name: "Biquíni tie-dye terroso", price: "R$ 49,90", image: "/products/biquini-tie-dye-2.png", category: "Moda praia", type: "Biquínis" },
+  { slug: "biquini-estampa-pink", name: "Biquíni estampa pink", price: "R$ 49,90", image: "/products/biquini-estampa-pink.png", category: "Moda praia", type: "Biquínis" },
 ]
 
 export function getShopProduct(slug: string) {

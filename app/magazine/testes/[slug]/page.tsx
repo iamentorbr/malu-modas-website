@@ -80,7 +80,7 @@ const testData: Record<string, TestData> = {
     image: "/magazine/teste-amor.png",
     questions: ["Qual cena parece mais com o seu momento?", "Você se sente desejada quando veste algo que...", "Um encontro perfeito começa com...", "Quando gosta de alguém, você...", "O que você quer deixar para trás?", "Seu jeito de demonstrar amor é...", "Para se arrumar só para você, escolheria...", "Qual detalhe faz seu coração acelerar?", "Uma nova história merece...", "Hoje, você quer se permitir mais..."] ,
     options: [
-      ["Uma conversa que se estende", "Uma página virada", "Um encontro comigo", "Um convite inesperado"],
+      ["Um café que vira conversa longa, sem pressa de acabar", "Arrumar as malas e começar uma fase em outro lugar", "Um domingo tranquilo, cuidando de mim e dos meus desejos", "Aceitar um convite de última hora e ver onde a noite vai dar"],
       ["Me deixa confortável para ser eu", "Marca uma nova versão", "Cuida de mim sem pedir aprovação", "Tem algo surpreendente"],
       ["Um olhar atento", "A chance de começar diferente", "Sentir que estou segura", "Uma história sem roteiro"],
       ["Me aproximo com calma", "Me permito tentar de novo", "Cuido dos meus limites", "Sigo a curiosidade"],

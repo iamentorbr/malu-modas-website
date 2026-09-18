@@ -18,8 +18,10 @@ export async function generateMetadata({
   const campanha = getCampanha(slug)
   if (!campanha) return { title: "Campanha | MALU MODAS" }
   return {
-    title: `${campanha.nome} | MALU MODAS`,
-    description: campanha.descricao,
+    title: `${campanha.title} | MALU MODAS`,
+    description: campanha.description,
+    openGraph: { title: `${campanha.title} | MALU MODAS`, description: campanha.description, images: [{ url: campanha.image, alt: campanha.title }] },
+    twitter: { card: 'summary_large_image', images: [campanha.image] },
   }
 }
 

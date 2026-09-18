@@ -16,7 +16,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const product = getShopProduct(slug)
   if (!product) return { title: "Produto não encontrado | MALU MODAS" }
-  return { title: `${product.name} | MALU MODAS`, description: `Confira ${product.name} por ${product.price} e consulte a disponibilidade pelo WhatsApp.` }
+  const description = `Confira ${product.name} por ${product.price} e consulte a disponibilidade pelo WhatsApp.`
+  return {
+    title: `${product.name} | MALU MODAS`,
+    description,
+    openGraph: { title: `${product.name} | MALU MODAS`, description, images: [{ url: product.image, alt: product.name }] },
+    twitter: { card: 'summary_large_image', images: [product.image] },
+  }
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {

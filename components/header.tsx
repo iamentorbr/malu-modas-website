@@ -38,7 +38,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs tracking-[0.2em] uppercase text-foreground hover:text-accent transition-colors"
+              className={link.href === "/magazine" ? "relative text-xs tracking-[0.2em] uppercase text-[#d72f39] font-bold transition-colors after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-[#d72f39]" : "text-xs tracking-[0.2em] uppercase text-foreground hover:text-accent transition-colors"}
             >
               {link.label}
             </Link>
@@ -61,7 +61,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-xs tracking-[0.2em] uppercase text-foreground hover:text-accent transition-colors"
+              className={link.href === "/magazine" ? "relative text-xs tracking-[0.2em] uppercase text-[#d72f39] font-bold transition-colors after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-full after:bg-[#d72f39]" : "text-xs tracking-[0.2em] uppercase text-foreground hover:text-accent transition-colors"}
             >
               {link.label}
             </Link>

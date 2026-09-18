@@ -11,12 +11,12 @@ export const metadata = {
 
 const whatsappNumber = "5518997453135"
 const products = [
-  { slug: "biquini-tigre", name: "Biquíni estampa tigre", price: "R$ 89,90", image: "/products/biquini-tigre.png" },
-  { slug: "biquini-estampado", name: "Biquíni estampa tropical", price: "R$ 89,90", image: "/products/biquini-estampado.png" },
-  { slug: "biquini-verde", name: "Biquíni verde militar", price: "R$ 99,90", image: "/products/biquini-verde.png" },
-  { slug: "biquini-azul", name: "Biquíni azul intenso", price: "R$ 89,90", image: "/products/biquini-azul.png" },
-  { slug: "biquini-laranja", name: "Biquíni laranja solar", price: "R$ 99,90", image: "/products/biquini-laranja.png" },
-  { slug: "biquini-preto-laranja", name: "Biquíni preto e laranja", price: "R$ 109,90", image: "/products/biquini-preto-laranja.png" },
+  { slug: "biquini-tigre", name: "Biquíni estampa tigre", price: "R$ 49,90", image: "/products/biquini-tigre.png" },
+  { slug: "biquini-estampado", name: "Biquíni estampa tropical", price: "R$ 49,90", image: "/products/biquini-estampado.png" },
+  { slug: "biquini-verde", name: "Biquíni verde militar", price: "R$ 49,90", image: "/products/biquini-verde.png" },
+  { slug: "biquini-azul", name: "Biquíni azul intenso", price: "R$ 49,90", image: "/products/biquini-azul.png" },
+  { slug: "biquini-laranja", name: "Biquíni laranja solar", price: "R$ 49,90", image: "/products/biquini-laranja.png" },
+  { slug: "biquini-preto-laranja", name: "Biquíni preto e laranja", price: "R$ 49,90", image: "/products/biquini-preto-laranja.png" },
 ]
 
 function whatsappLink(slug: string, name: string) {

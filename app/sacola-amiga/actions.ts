@@ -13,8 +13,16 @@ export async function inserirCadastro(data: SacolaAmigarInsert) {
   return { ok: true }
 }
 
-export async function listarCadastros(busca?: string) {
+async function requireAdmin() {
   const supabase = await createClient()
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user || user.app_metadata?.role !== "admin") return null
+  return supabase
+}
+
+export async function listarCadastros(busca?: string) {
+  const supabase = await requireAdmin()
+  if (!supabase) return { ok: false, data: [], error: "Acesso restrito a administradores." }
   let query = supabase
     .from("sacola_amiga")
     .select("*")
@@ -33,7 +41,8 @@ export async function listarCadastros(busca?: string) {
 }
 
 export async function atualizarCadastro(id: string, data: Partial<SacolaAmigarInsert>) {
-  const supabase = await createClient()
+  const supabase = await requireAdmin()
+  if (!supabase) return { ok: false, error: "Acesso restrito a administradores." }
   const { error } = await supabase.from("sacola_amiga").update(data).eq("id", id)
   if (error) {
     console.log("[sacola-amiga] erro ao atualizar:", error.message)
@@ -43,7 +52,8 @@ export async function atualizarCadastro(id: string, data: Partial<SacolaAmigarIn
 }
 
 export async function deletarCadastro(id: string) {
-  const supabase = await createClient()
+  const supabase = await requireAdmin()
+  if (!supabase) return { ok: false, error: "Acesso restrito a administradores." }
   const { error } = await supabase.from("sacola_amiga").delete().eq("id", id)
   if (error) {
     console.log("[sacola-amiga] erro ao deletar:", error.message)

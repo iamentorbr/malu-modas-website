@@ -23,6 +23,17 @@ export const metadata: Metadata = {
   description:
     'MALU MODAS - Sua loja de moda feminina em Adamantina, SP. Vestidos, conjuntos, acessorios e muito mais com estilo e elegancia tropical.',
   generator: 'v0.app',
+  metadataBase: new URL('https://malumodas.com.br'),
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'MALU MODAS',
+    images: [{ url: '/malu/fachada.png', width: 1200, height: 630, alt: 'MALU MODAS em Adamantina' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/malu/fachada.png'],
+  },
 }
 
 export const viewport: Viewport = {

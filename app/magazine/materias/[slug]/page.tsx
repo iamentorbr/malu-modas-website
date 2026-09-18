@@ -125,7 +125,17 @@ const starsCards = [
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const article = articles[slug as Slug] ?? articles["guarda-roupa-salva-o-dia"]
-  return { title: `${article.title} | MALU Magazine`, description: article.hook }
+  return {
+    title: `${article.title} | MALU Magazine`,
+    description: article.hook,
+    openGraph: {
+      type: 'article',
+      title: article.title,
+      description: article.hook,
+      images: [{ url: article.image, alt: article.alt }],
+    },
+    twitter: { card: 'summary_large_image', images: [article.image] },
+  }
 }
 
 export default async function MateriaPage({ params }: { params: Promise<{ slug: string }> }) {

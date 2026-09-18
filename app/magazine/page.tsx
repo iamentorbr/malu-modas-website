@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
+import { TestesMalu } from "./testes-malu"
 
 export const metadata: Metadata = {
   title: "MALU MAGAZINE | Moda, comportamento e desejo",
@@ -8,10 +9,6 @@ export const metadata: Metadata = {
 }
 
 const coverImage = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12bb90da-daec-4baf-8a6e-e77b7f487896-2Ge0FjZTG8eLaB0onylzO2tTe1a07O.jpg"
-const whatsappNumber = "5518997453135"
-const testMessage = "CRIS, Acabei de responder o teste na MALU MAGAZINE e quero muito receber as novidades baseadas no meu perfil! Me ajuuuuuuuuda! ❤️😍"
-const testWhatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(testMessage)}`
-
 const departments = [
   { title: "Teste seu estilo", eyebrow: "Comportamento", text: "Você é clássica, solar, romântica ou a amiga que sempre ousa primeiro?", href: "#comportamento" },
   { title: "Seu look nas estrelas", eyebrow: "Horóscopo", text: "Uma leitura fashion para vestir a sua próxima fase.", href: "#horoscopo" },
@@ -80,7 +77,7 @@ export default function MagazinePage() {
         <EditorialSection id="horoscopo" eyebrow="02 · Horóscopo" title="Vista a sua fase" items={contents.horoscopo} />
         <EditorialSection id="amor" eyebrow="03 · Amor" title="Deixe o desejo falar" items={contents.amor} />
 
-        <section id="testes" className="mt-8 border-2 border-[#d72f39] bg-[#d72f39] p-8 text-white sm:p-12"><p className="text-xs font-bold uppercase tracking-[.28em] text-[#f7efe5]">Testes MALU</p><h2 className="mt-3 max-w-3xl font-serif text-4xl leading-none sm:text-6xl">Responda, descubra e receba novidades feitas para você.</h2><div className="mt-8 grid gap-4 md:grid-cols-3"><div className="bg-[#f0d9c4] p-5 text-[#211b18]"><p className="text-xs font-bold uppercase tracking-[.18em]">Teste 01</p><h3 className="mt-2 font-serif text-2xl">Qual é a sua energia hoje?</h3><p className="mt-2 text-sm">Clássica, solar, romântica ou ousada?</p></div><div className="bg-[#f0d9c4] p-5 text-[#211b18]"><p className="text-xs font-bold uppercase tracking-[.18em]">Teste 02</p><h3 className="mt-2 font-serif text-2xl">Que look combina com sua fase?</h3><p className="mt-2 text-sm">Conforto, cor, brilho ou uma nova história?</p></div><div className="bg-[#f0d9c4] p-5 text-[#211b18]"><p className="text-xs font-bold uppercase tracking-[.18em]">Teste 03</p><h3 className="mt-2 font-serif text-2xl">O que seu coração escolheria?</h3><p className="mt-2 text-sm">Um encontro, um recomeço ou você?</p></div></div><a href={testWhatsappUrl} target="_blank" rel="noreferrer" className="mt-8 inline-flex rounded-full bg-[#211b18] px-6 py-4 text-center text-xs font-bold uppercase tracking-[.2em] text-white transition-transform hover:-translate-y-1">Quero receber as novidades da MALU</a></section>
+        <TestesMalu />
       </section>
 
       <section className="bg-[#211b18] px-6 py-16 text-[#f7efe5] lg:px-12 lg:py-24"><div className="mx-auto flex max-w-7xl flex-col gap-8 lg:flex-row lg:items-end lg:justify-between"><div><p className="text-xs font-bold uppercase tracking-[.28em] text-[#f4a0a0]">Primeiro capítulo</p><h2 className="mt-3 max-w-2xl font-serif text-5xl leading-none sm:text-7xl">Biquínis<br /><i>troca de coleção</i></h2></div><Link href="/magazine/catalogo/biquinis" className="inline-flex w-fit rounded-full bg-[#d72f39] px-6 py-4 text-xs font-bold uppercase tracking-[.2em] transition-colors hover:bg-[#f4a0a0] hover:text-[#211b18]">Ver catálogo virtual</Link></div></section>

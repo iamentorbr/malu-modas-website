@@ -8,9 +8,9 @@ const destinations = [
     description: "Novidades, coleções e ofertas especiais da temporada.",
   },
   {
-    href: "/clubedamalu",
-    label: "Club da Malu",
-    description: "Vantagens exclusivas para nossas clientes mais queridas.",
+    href: "/sacola-amiga",
+    label: "Sacola Amiga | Bag Malu",
+    description: "Receba uma seleção especial em casa, experimente com calma e fique só com o que amar.",
   },
   {
     href: "/shop",

@@ -36,8 +36,8 @@ const articles = {
     category: "Horóscopo · Matéria 01",
     title: "Seu signo pede uma moda praia",
     hook: "Manvar, Arsiè e as promoções do VIP Amigas da Malu para vestir a sua próxima fase.",
-    image: "/magazine/horoscopo-moda-praia.png",
-    alt: "Mulher usando moda praia elegante em um cenário ensolarado",
+    image: "/magazine/horoscopo-signo-praia.png",
+    alt: "Mulher usando moda praia elegante diante do mar ensolarado",
     paragraphs: [
       "Cada signo tem um jeito próprio de chegar ao verão. Há quem escolha a cor antes mesmo de olhar a modelagem, quem procure conforto para passar o dia inteiro fora e quem queira uma peça que conte uma história sem precisar dizer nada.",
       "Na Manvar, a moda praia encontra personalidade em cores, recortes e presenças marcantes. É para quem gosta de vestir o sol com coragem, transformar a saída de praia em look e deixar que o estilo acompanhe cada mergulho.",
@@ -50,8 +50,8 @@ const articles = {
     category: "Horóscopo · Matéria 02",
     title: "O verão está nas estrelas",
     hook: "Uma leitura fashion para escolher sua próxima moda praia com intenção, desejo e um pouco de magia.",
-    image: "/magazine/horoscopo-moda-praia.png",
-    alt: "Mulher escolhendo um look de moda praia em um cenário ensolarado",
+    image: "/magazine/horoscopo-verao-estrelas.png",
+    alt: "Mulher escolhendo um look de moda praia ao entardecer",
     paragraphs: [
       "O céu muda todos os dias, e a gente também. Por isso, olhar para as estrelas pode ser um jeito divertido de perguntar: o que eu quero viver nesta temporada? Mais aventura, descanso, encontros ou simplesmente tempo para mim?",
       "Para as personalidades solares, a Manvar traz atitude e energia. Para quem busca leveza e versatilidade, a Arsiè oferece combinações que atravessam a praia, o almoço e o fim de tarde com naturalidade.",

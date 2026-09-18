@@ -11,8 +11,8 @@ export default function Home() {
     <main>
       <AnnouncementBar />
       <Header />
-      <MagazineHighlights />
       <StorefrontHero />
+      <MagazineHighlights />
       <HomeShopHighlight />
       <HomeDestinations />
       <Footer />

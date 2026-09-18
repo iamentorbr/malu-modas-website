@@ -107,6 +107,21 @@ const zodiacCards = [
   ["Peixes", "/magazine/signo-peixes.png", "Biquíni fluido ou maiô em tons suaves. Hidrate-se e proteja sua sensibilidade. Romance e inspiração chegam com o verão; a MALU acolhe seu imaginário com delicadeza."],
 ] as const
 
+const starsCards = [
+  ["Áries", "/magazine/estrelas-aries.png", "Seu verão começa quando você para de esperar a ocasião perfeita. Um lenço coral ou óculos de sol marcantes traduzem sua coragem e transformam o caminho até a praia em parte da aventura. A MALU lembra: presença também é uma forma de brilho."],
+  ["Touro", "/magazine/estrelas-touro.png", "Você floresce quando o prazer deixa de ser adiado. Aposte em joias delicadas, uma bolsa de palha bem escolhida e texturas que convidam ao toque. A MALU acompanha sua primavera-verão com escolhas que respeitam seu tempo e celebram o conforto."],
+  ["Gêmeos", "/magazine/estrelas-gemeos.png", "O céu abre muitas portas, e seu acessório especial pode mudar de acordo com a história do dia: lenço colorido, presilhas ou uma bolsa divertida. A MALU combina com sua curiosidade ao criar possibilidades para você nunca precisar escolher uma única versão de si."],
+  ["Câncer", "/magazine/estrelas-cancer.png", "A estação pede um lugar onde o coração possa respirar. Um colar de conchas ou uma saída de praia azul-clara carrega memória e acolhimento. A MALU entende que vestir-se também é criar uma casa portátil para a sua sensibilidade."],
+  ["Leão", "/magazine/estrelas-leao.png", "Você não precisa diminuir sua luz para caber em nenhum cenário. Escolha uma corrente dourada, um chapéu de presença ou uma saída laranja. A MALU encontra o detalhe que faz sua chegada ser inesquecível, sem confundir brilho com excesso."],
+  ["Virgem", "/magazine/estrelas-virgem.png", "Seu luxo está no que funciona bem e permanece bonito. Um chapéu de palha impecável, uma bolsa organizada e sandálias confortáveis acompanham seus planos. A MALU transforma seu olhar atento em uma curadoria que simplifica sem empobrecer."],
+  ["Libra", "/magazine/estrelas-libra.png", "A primavera-verão convida você a escolher relações e objetos que devolvam harmonia. Um lenço rosado ou joias delicadas arrematam o look sem competir com ele. A MALU combina com seu desejo de beleza porque entende que equilíbrio também pode ser desejo."],
+  ["Escorpião", "/magazine/estrelas-escorpiao.png", "O que você não revela também compõe sua presença. Um kaftan preto, óculos escuros ou uma bolsa de textura intensa protegem seu espaço e deixam a imaginação trabalhar. A MALU acompanha sua profundidade com peças que não pedem explicação."],
+  ["Sagitário", "/magazine/estrelas-sagitario.png", "O acessório ideal precisa acompanhar o movimento: uma bolsa trançada, um visor colorido e sandálias que aceitam caminhos imprevistos. A MALU veste sua vontade de partir e lembra que liberdade também é poder escolher o próprio ritmo."],
+  ["Capricórnio", "/magazine/estrelas-capricornio.png", "Você sabe que uma escolha boa atravessa temporadas. Invista em uma bolsa estruturada ou sandália clássica que eleve qualquer produção. A MALU encontra o ponto entre investimento e prazer, para que seu verão tenha beleza e consistência."],
+  ["Aquário", "/magazine/estrelas-aquario.png", "Sua moda começa onde termina o óbvio. Óculos espelhados, uma peça escultural ou uma bolsa de formato inesperado expressam sua liberdade. A MALU abre espaço para essa invenção e para uma estação vivida do seu jeito."],
+  ["Peixes", "/magazine/estrelas-peixes.png", "Você percebe o verão pelas sensações: a luz, a água e a música do fim da tarde. Um acessório de conchas, lenço lilás ou brilho suave traduz esse universo. A MALU protege sua delicadeza sem apagar a força da sua imaginação."],
+] as const
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
   const article = articles[slug as Slug] ?? articles["guarda-roupa-salva-o-dia"]
@@ -131,6 +146,21 @@ export default async function MateriaPage({ params }: { params: Promise<{ slug: 
         <CompartilharTeste title={article.title} />
         <article className="mx-auto max-w-3xl py-10 sm:py-16">
           {article.paragraphs.map((paragraph) => <p key={paragraph} className="mb-7 font-serif text-xl leading-relaxed sm:text-2xl">{paragraph}</p>)}
+          {slug === "verao-nas-estrelas" && (
+            <section className="mt-14" aria-labelledby="estrelas-signos-titulo">
+              <p className="text-xs font-bold uppercase tracking-[.25em] text-[#d72f39]">O céu também escolhe</p>
+              <h2 id="estrelas-signos-titulo" className="mt-3 font-serif text-4xl leading-none sm:text-5xl">Seu verão escrito nas estrelas</h2>
+              <p className="mt-5 text-base leading-relaxed text-[#211b18]/70">Doze leituras para transformar personalidade em presença, com um acessório especial para acompanhar sua moda praia.</p>
+              <div className="mt-8 grid gap-5 sm:grid-cols-2">
+                {starsCards.map(([sign, image, text], index) => (
+                  <article key={sign} className={`grid items-start gap-5 border-2 border-[#211b18] p-4 sm:grid-cols-[120px_1fr] sm:p-5 ${index % 3 === 0 ? "bg-[#e7dced]" : index % 3 === 1 ? "bg-[#f1c8ce]" : "bg-[#f0d9c4]"}`}>
+                    <div className="relative aspect-[3/4] overflow-hidden border-2 border-[#211b18]"><Image src={image} alt={`Mulher representando ${sign} no verão`} fill sizes="120px" className="object-cover" /></div>
+                    <div><p className="text-xs font-bold uppercase tracking-[.2em] text-[#d72f39]">Moda praia + acessório</p><h3 className="mt-2 font-serif text-3xl">{sign}</h3><p className="mt-3 text-sm leading-relaxed">{text}</p></div>
+                  </article>
+                ))}
+              </div>
+            </section>
+          )}
           {slug === "moda-praia-seu-signo" && (
             <section className="mt-14" aria-labelledby="guia-signos-titulo">
               <p className="text-xs font-bold uppercase tracking-[.25em] text-[#d72f39]">Primavera-verão 2026</p>

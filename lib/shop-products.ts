@@ -20,7 +20,6 @@ export const shopProducts: ShopProduct[] = [
   { slug: "biquini-teal-estampado", name: "Biquíni azul petróleo estampado", price: "R$ 49,90", image: "/products/biquini-teal-estampado.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-tie-dye", name: "Biquíni tie-dye marrom", price: "R$ 49,90", image: "/products/biquini-tie-dye.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-laranja-medalhoes", name: "Biquíni laranja medalhões", price: "R$ 49,90", image: "/products/biquini-laranja-medalhoes.png", category: "Moda praia", type: "Biquínis" },
-  { slug: "biquini-preto-laranja-2", name: "Biquíni preto e laranja clássico", price: "R$ 49,90", image: "/products/biquini-preto-laranja-2.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-azul-peixes", name: "Biquíni azul peixes", price: "R$ 49,90", image: "/products/biquini-azul-peixes.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-animal-print", name: "Biquíni animal print", price: "R$ 49,90", image: "/products/biquini-animal-print.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-rosa-canelado", name: "Biquíni rosa canelado", price: "R$ 49,90", image: "/products/biquini-rosa-canelado.png", category: "Moda praia", type: "Biquínis" },

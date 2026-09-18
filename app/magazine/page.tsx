@@ -17,8 +17,8 @@ const departments = [
 
 const contents = {
   comportamento: [
-    { title: "Quando o guarda-roupa salva o dia", text: "Você acorda atrasada, tem uma reunião importante e precisa parecer você mesma em cinco minutos. A solução não é ter mais roupa: é reconhecer as peças MALU que fazem você respirar fundo, se olhar no espelho e sair pronta para ocupar seu espaço." },
-    { title: "A amiga que sempre leva uma terceira opção", text: "No café depois do trabalho, o convite muda para um jantar e você não quer voltar para casa. Um blazer leve, um vestido que acompanha o corpo e um acessório marcante transformam a mesma produção — do jeito prático e cheio de personalidade que a MALU entende." },
+    { title: "Quando o guarda-roupa salva o dia", text: "Você acorda atrasada, tem uma reunião importante e precisa parecer você mesma em cinco minutos. A solução não é ter mais roupa: é reconhecer as peças MALU que fazem você respirar fundo, se olhar no espelho e sair pronta para ocupar seu espaço.", href: "/magazine/materias/guarda-roupa-salva-o-dia" },
+    { title: "A amiga que sempre leva uma terceira opção", text: "No café depois do trabalho, o convite muda para um jantar e você não quer voltar para casa. Um blazer leve, um vestido que acompanha o corpo e um acessório marcante transformam a mesma produção — do jeito prático e cheio de personalidade que a MALU entende.", href: "/magazine/materias/terceira-peca-para-toda-historia" },
   ],
   horoscopo: [
     { title: "Mercúrio pede praticidade", text: "A agenda está cheia: trânsito, mensagens sem resposta e uma apresentação no fim do dia. Escolha uma produção que trabalhe por você, com conforto e presença. Na curadoria da MALU, cada detalhe ajuda a deixar a rotina mais leve." },
@@ -30,7 +30,7 @@ const contents = {
   ],
 }
 
-function EditorialSection({ id, eyebrow, title, items }: { id: string; eyebrow: string; title: string; items: { title: string; text: string }[] }) {
+function EditorialSection({ id, eyebrow, title, items }: { id: string; eyebrow: string; title: string; items: { title: string; text: string; href?: string }[] }) {
   return (
     <section id={id} className="border-t-2 border-[#211b18] py-16 lg:py-20">
       <div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr]">
@@ -44,7 +44,7 @@ function EditorialSection({ id, eyebrow, title, items }: { id: string; eyebrow: 
               <span className="font-serif text-3xl text-[#d72f39]">0{index + 1}</span>
               <h3 className="mt-8 font-serif text-2xl leading-tight">{item.title}</h3>
               <p className="mt-4 text-sm leading-relaxed text-[#51433d]">{item.text}</p>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[.18em] text-[#d72f39]">MALU por perto</p>
+              <Link href={item.href ?? `#${id}`} className="mt-6 inline-flex text-xs font-bold uppercase tracking-[.18em] text-[#d72f39] hover:underline">Ler matéria →</Link>
             </article>
           ))}
         </div>

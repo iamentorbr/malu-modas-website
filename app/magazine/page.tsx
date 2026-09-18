@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const coverImage = "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12bb90da-daec-4baf-8a6e-e77b7f487896-2Ge0FjZTG8eLaB0onylzO2tTe1a07O.jpg"
 const departments = [
-  { title: "Teste seu estilo", eyebrow: "Comportamento", text: "Você é clássica, solar, romântica ou a amiga que sempre ousa primeiro?", href: "#comportamento" },
-  { title: "Seu look nas estrelas", eyebrow: "Horóscopo", text: "Uma leitura fashion para vestir a sua próxima fase.", href: "#horoscopo" },
-  { title: "Amor à primeira vista", eyebrow: "Amor", text: "Peças, encontros e pequenos sinais para deixar o desejo falar.", href: "#amor" },
+  { title: "Comportamento", eyebrow: "01", text: "Estilo para a vida real, com escolhas que revelam quem você é.", href: "#comportamento", color: "bg-[#f3d7c0] hover:bg-[#e98b78]" },
+  { title: "Horóscopo", eyebrow: "02", text: "Moda, personalidade e inspiração para vestir a sua próxima fase.", href: "#horoscopo", color: "bg-[#e1d5ee] hover:bg-[#a98bc4]" },
+  { title: "Amor", eyebrow: "03", text: "Desejo, encontros e autocuidado para escolher com o coração.", href: "#amor", color: "bg-[#f1c8ce] hover:bg-[#d97887]" },
 ]
 
 const contents = {
@@ -71,7 +71,7 @@ export default function MagazinePage() {
 
       <section id="conteudos" className="mx-auto max-w-7xl px-6 py-16 lg:px-12 lg:py-24">
         <div className="grid gap-10 border-b-2 border-[#211b18] pb-16 lg:grid-cols-[.8fr_1.2fr] lg:items-end"><p className="text-sm font-bold uppercase tracking-[.28em] text-[#d72f39]">Carta da redação</p><p className="max-w-4xl font-serif text-3xl leading-tight sm:text-5xl">Situações reais, conversas honestas e um jeito MALU de encontrar estilo para a vida que acontece de verdade.</p></div>
-        <div className="grid gap-4 py-12 sm:grid-cols-3">{departments.map((item, index) => <a key={item.title} href={item.href} className="group border-2 border-[#211b18] bg-[#f0d9c4] p-6 transition-all hover:-translate-y-1 hover:bg-[#d72f39] hover:text-white"><span className="font-serif text-4xl text-[#d72f39] group-hover:text-white">0{index + 1}</span><p className="mt-8 text-xs font-bold uppercase tracking-[.22em]">{item.eyebrow}</p><h2 className="mt-2 font-serif text-2xl">{item.title}</h2><p className="mt-3 text-sm leading-relaxed opacity-75">{item.text}</p></a>)}</div>
+        <div className="grid gap-4 py-12 sm:grid-cols-3">{departments.map((item) => <a key={item.title} href={item.href} className={`group border-2 border-[#211b18] p-6 transition-all hover:-translate-y-1 hover:text-[#211b18] ${item.color}`}><span className="font-serif text-4xl text-[#d72f39]">{item.eyebrow}</span><p className="mt-8 text-xs font-bold uppercase tracking-[.22em]">{item.title}</p><h2 className="mt-2 font-serif text-2xl">MALU MAGAZINE</h2><p className="mt-3 text-sm leading-relaxed opacity-75">{item.text}</p><span className="mt-6 inline-flex text-xs font-bold uppercase tracking-[.18em] underline underline-offset-4">Explorar categoria</span></a>)}</div>
 
         <EditorialSection id="comportamento" eyebrow="01 · Comportamento" title="A vida pede estilo" items={contents.comportamento} />
         <EditorialSection id="horoscopo" eyebrow="02 · Horóscopo" title="Vista a sua fase" items={contents.horoscopo} />

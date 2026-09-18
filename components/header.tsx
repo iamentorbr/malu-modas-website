@@ -10,7 +10,7 @@ const navLinksLeft = [
 ]
 
 const navLinksRight = [
-  { href: "/clubedamalu", label: "Club" },
+  { href: "/magazine", label: "Malu Magazine" },
   { href: "#contato", label: "Contato" },
 ]
 

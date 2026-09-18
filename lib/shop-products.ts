@@ -12,7 +12,6 @@ export const shopProducts: ShopProduct[] = [
   { slug: "biquini-estampado", name: "Biquíni estampa tropical", price: "R$ 49,90", image: "/products/biquini-estampado.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-verde", name: "Biquíni verde militar", price: "R$ 49,90", image: "/products/biquini-verde.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-azul", name: "Biquíni azul intenso", price: "R$ 49,90", image: "/products/biquini-azul.png", category: "Moda praia", type: "Biquínis" },
-  { slug: "biquini-laranja", name: "Biquíni laranja solar", price: "R$ 49,90", image: "/products/biquini-laranja.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-preto-laranja", name: "Biquíni preto e laranja", price: "R$ 49,90", image: "/products/biquini-preto-laranja.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-amarelo-paisagem", name: "Biquíni amarelo paisagem", price: "R$ 49,90", image: "/products/biquini-amarelo-paisagem.png", category: "Moda praia", type: "Biquínis" },
   { slug: "biquini-paisagem-colorida", name: "Biquíni paisagem colorida", price: "R$ 49,90", image: "/products/biquini-paisagem-colorida.png", category: "Moda praia", type: "Biquínis" },

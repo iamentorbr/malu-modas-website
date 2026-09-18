@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useTransition, useCallback } from "react"
+import { useState, useTransition, useCallback, useEffect } from "react"
 import {
   Search, ShoppingBag, Phone, MapPin, Tag, Calendar,
   Pencil, Trash2, X, Check, LogOut, Users,
@@ -251,23 +251,19 @@ export default function PainelAdmin({ onLogout }: { onLogout: () => void }) {
   const [expandido, setExpandido] = useState<string | null>(null)
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
 
-  // Carrega na montagem
-  const carregar = useCallback((valor: string) => {
+  const carregar = useCallback((valor = "") => {
     startTransition(async () => {
       const res = await listarCadastros(valor)
       if (res.ok) {
         setClientes(res.data as SacolaAmiga[])
-        setCarregado(true)
       }
+      setCarregado(true)
     })
   }, [])
 
-  if (!carregado) {
-    startTransition(async () => {
-      const res = await listarCadastros()
-      if (res.ok) { setClientes(res.data as SacolaAmiga[]); setCarregado(true) }
-    })
-  }
+  useEffect(() => {
+    carregar()
+  }, [carregar])
 
   const pesquisar = (valor: string) => {
     setBusca(valor)

@@ -32,6 +32,34 @@ const articles = {
       "MALU é essa amiga que ajuda você a escolher sem complicar. Por isso, nossas novidades são pensadas para a vida inteira, não para uma foto isolada: peças que atravessam planos, humor e horários. Quando o dia mudar de ideia, seu estilo pode mudar junto.",
     ],
   },
+  "adamantina-novos-capitulos": {
+    category: "Amor · Matéria 01",
+    title: "Adamantina, mudanças e novos capítulos",
+    hook: "Há lugares que guardam a nossa história — e pessoas que aprendem a mudar sem deixar de ser verdadeiras.",
+    image: "/magazine/materia-adamantina.png",
+    alt: "Mulher caminhando por uma rua de Adamantina ao entardecer",
+    paragraphs: [
+      "Adamantina, no interior de São Paulo, tem esse jeito bonito de lembrar que as grandes histórias também nascem em lugares onde todo mundo conhece o seu nome. Foi ali que a MALU construiu, ao longo de 30 anos, uma relação feita de presença, confiança e muitas mudanças vividas lado a lado.",
+      "A vida muda de endereço, de planos, de corpo e de desejos. Mudam as prioridades, os encontros e a maneira como a gente se enxerga no espelho. Mas algumas coisas permanecem: a vontade de acolher, o cuidado em escolher e a certeza de que moda pode acompanhar uma mulher em cada novo capítulo.",
+      "Depois de uma história incrível, a MALU também está vivendo suas transformações. Olhamos para o futuro com a mesma intimidade de quem conhece a cidade, suas clientes e suas histórias — mas com olhos curiosos para novas possibilidades, novas peças e novas formas de estar perto.",
+      "Amar é perceber a mudança sem tentar congelá-la. É celebrar quem você foi, reconhecer quem você é e abrir espaço para quem está chegando. Em Adamantina, cada encontro na MALU carrega um pouco desse movimento: uma conversa, uma escolha e a sensação de que você não precisa viver sua próxima fase sozinha.",
+      "As novidades da MALU nascem desse vínculo. São escolhas para acompanhar a sua vida real, com beleza, intenção e o carinho de uma marca que segue mudando — sem esquecer de onde veio.",
+    ],
+  },
+  "escolher-com-amor": {
+    category: "Amor · Matéria 02",
+    title: "Escolher também é um ato de amor",
+    hook: "Quando você escolhe com critério, começa a construir uma relação mais bonita com o espelho, com a vida e com quem ama.",
+    image: "/magazine/materia-escolher.png",
+    alt: "Mulher escolhendo peças cuidadosamente em uma boutique",
+    paragraphs: [
+      "Escolher parece simples até a gente perceber quantas vozes falam dentro de uma decisão. A tendência do momento, a opinião de alguém, o medo de errar e aquela vontade antiga de se sentir bonita. Amar a si mesma também passa por aprender a escutar qual dessas vozes realmente é sua.",
+      "Na MALU, curadoria não é reunir tudo o que existe. É olhar com atenção para cada peça, entender a qualidade, o caimento, a história e o lugar que ela pode ocupar na vida de uma cliente. É escolher menos no automático e mais com intenção.",
+      "Esse critério muda a relação com a roupa. Uma peça bem escolhida não precisa disputar espaço no armário: ela encontra você. Acompanha um encontro, um dia comum, uma mudança de planos e aquela versão que você ainda está descobrindo.",
+      "E amar alguém também é escolher com presença. É observar o que faz sentido para a outra pessoa, respeitar seus desejos e oferecer algo que diga: eu vejo você. O cuidado que colocamos na curadoria é uma forma de levar esse mesmo gesto para cada cliente da MALU.",
+      "Entre o amor-próprio e o amor compartilhado, existe uma escolha diária: tratar sua história com carinho. Que as próximas novidades sejam um convite para escolher com calma, critério e prazer — do jeito que a MALU acredita que você merece.",
+    ],
+  },
 } as const
 
 type Slug = keyof typeof articles
@@ -48,7 +76,7 @@ export default async function MateriaPage({ params }: { params: Promise<{ slug: 
   return (
     <main className="min-h-screen bg-[#f7efe5] text-[#211b18]">
       <div className="mx-auto max-w-5xl px-6 py-8 lg:px-12">
-        <Link href="/magazine#comportamento" className="text-xs font-bold uppercase tracking-[.2em] text-[#d72f39]">← Voltar para comportamento</Link>
+        <Link href={`/magazine#${article.category.startsWith("Amor") ? "amor" : "comportamento"}`} className="text-xs font-bold uppercase tracking-[.2em] text-[#d72f39]">← Voltar para {article.category.startsWith("Amor") ? "amor" : "comportamento"}</Link>
         <header className="mt-10 max-w-4xl">
           <p className="text-xs font-bold uppercase tracking-[.3em] text-[#d72f39]">{article.category}</p>
           <h1 className="mt-5 font-serif text-6xl leading-[.86] sm:text-8xl">{article.title}</h1>

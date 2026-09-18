@@ -25,8 +25,8 @@ const contents = {
     { title: "O verão está nas estrelas", text: "Descubra uma leitura para cada signo e encontre as novidades que combinam com o seu jeito de viver o sol.", href: "/magazine/horoscopo" },
   ],
   amor: [
-    { title: "O encontro que começa no improviso", text: "Era só um café rápido, mas ele virou passeio, conversa longa e aquele desejo de prolongar a noite. Vista algo que acompanhe todos os seus planos — uma escolha MALU para quando a melhor parte da história não estava no roteiro." },
-    { title: "Amor também é se escolher", text: "Tem dias em que o convite é ficar em casa, colocar sua música favorita e se arrumar só para você. O look mais importante é aquele que devolve sua confiança, e a MALU celebra cada versão sua, com ou sem testemunhas." },
+    { title: "Adamantina, mudanças e novos capítulos", text: "Depois de 30 anos de uma história incrível, a MALU olha para Adamantina e para tudo o que a vida ainda pode transformar.", href: "/magazine/materias/adamantina-novos-capitulos" },
+    { title: "Escolher também é um ato de amor", text: "Critério, curadoria e escolhas que aproximam você de si mesma — e de quem você ama.", href: "/magazine/materias/escolher-com-amor" },
   ],
 }
 

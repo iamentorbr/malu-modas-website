@@ -21,8 +21,8 @@ const contents = {
     { title: "A amiga que sempre leva uma terceira opção", text: "No café depois do trabalho, o convite muda para um jantar e você não quer voltar para casa. Um blazer leve, um vestido que acompanha o corpo e um acessório marcante transformam a mesma produção — do jeito prático e cheio de personalidade que a MALU entende.", href: "/magazine/materias/terceira-peca-para-toda-historia" },
   ],
   horoscopo: [
-    { title: "Seu signo pede uma moda praia", text: "Manvar, Arsiè e as promoções do grupo VIP Amigas da Malu para vestir sua próxima fase com intenção.", href: "/magazine/horoscopo" },
-    { title: "O verão está nas estrelas", text: "Descubra uma leitura para cada signo e encontre as novidades que combinam com o seu jeito de viver o sol.", href: "/magazine/horoscopo" },
+{ title: "Seu signo pede uma moda praia", text: "Manvar, Arsiè e as promoções do grupo VIP Amigas da Malu para vestir sua próxima fase com intenção.", href: "/magazine/materias/moda-praia-seu-signo" },
+ { title: "O verão está nas estrelas", text: "Descubra uma leitura para cada signo e encontre as novidades que combinam com o seu jeito de viver o sol.", href: "/magazine/materias/verao-nas-estrelas" },
   ],
   amor: [
     { title: "Adamantina, mudanças e novos capítulos", text: "Depois de 30 anos de uma história incrível, a MALU olha para Adamantina e para tudo o que a vida ainda pode transformar.", href: "/magazine/materias/adamantina-novos-capitulos" },

@@ -24,7 +24,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = getShopProduct(slug)
   if (!product) notFound()
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://malumodas.clipp.com.br"
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://eusoumalu.com.br"
   const whatsappUrl = getWhatsappLink(product, siteUrl)
 
   return (

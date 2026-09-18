@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { AnnouncementBar } from "@/components/announcement-bar"
 import { Header } from "@/components/header"
@@ -113,8 +114,14 @@ export default function SacolaAmigaPage() {
             <div className="hidden lg:flex items-center justify-center">
               <div className="relative">
                 <div className="w-72 h-72 rounded-full bg-accent/10 flex items-center justify-center">
-                  <div className="w-52 h-52 rounded-full bg-accent/15 flex items-center justify-center">
-                    <ShoppingBag className="h-24 w-24 text-accent/50" strokeWidth={1} />
+                  <div className="relative h-52 w-52 overflow-hidden rounded-full bg-accent/15">
+                    <Image
+                      src="/sacola-amiga/bag-malu-hero.png"
+                      alt="Sacola de lona MALU com peças estampadas"
+                      fill
+                      sizes="208px"
+                      className="object-cover"
+                    />
                   </div>
                 </div>
                 <div className="absolute -top-4 -right-4 bg-background border border-border rounded-sm px-4 py-2.5 shadow-sm">

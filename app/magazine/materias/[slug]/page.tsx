@@ -92,20 +92,6 @@ const articles = {
 
 type Slug = keyof typeof articles
 
-const zodiacRows = [
-  ["Áries", "Maiô de recortes ou biquíni vibrante", "Proteja a pele e respeite seu ritmo antes de sair para a aventura.", "Coragem para começar: movimento, viagens e escolhas mais ousadas.", "A MALU acompanha sua energia com peças marcantes e práticas."],
-  ["Touro", "Maiô estruturado ou biquíni de cintura alta", "Invista em conforto, hidratação e tempo para aproveitar sem pressa.", "Prazer nos detalhes: uma primavera-verão de estabilidade e bons encontros.", "A MALU seleciona caimentos gostosos e qualidade para durar."],
-  ["Gêmeos", "Biquíni versátil com saída de praia", "Alterne sol e sombra, hidrate-se e escolha peças que acompanhem seus planos.", "Novas conversas, convites e mudanças de cenário movimentam os meses quentes.", "A MALU combina com sua curiosidade em produções que rendem várias histórias."],
-  ["Câncer", "Maiô delicado ou biquíni com top confortável", "Crie um ritual de autocuidado e escolha um lugar onde você se sinta acolhida.", "Memórias afetivas, reencontros e um desejo maior de pertencimento.", "A MALU cuida dos detalhes para você se sentir em casa na própria pele."],
-  ["Leão", "Biquíni metalizado ou maiô de presença", "Use proteção solar e lembre-se de que descansar também é brilhar.", "Visibilidade, celebrações e espaço para mostrar seu estilo sem pedir licença.", "A MALU encontra a peça protagonista para cada entrada triunfal."],
-  ["Virgem", "Maiô minimalista ou biquíni de linhas limpas", "Organize sua bolsa de praia, sua proteção e seus momentos de pausa.", "Um período para simplificar, cuidar da rotina e escolher melhor.", "A MALU traduz seu olhar criterioso em peças bem pensadas."],
-  ["Libra", "Biquíni elegante com saída coordenada", "Equilibre exposição e descanso: seu bem-estar vem antes da produção.", "Parcerias, encontros e decisões que pedem harmonia e beleza.", "A MALU ajuda a criar combinações bonitas sem perder leveza."],
-  ["Escorpião", "Maiô marcante ou biquíni de cores profundas", "Ouça seus limites e prefira ambientes onde sua intimidade seja respeitada.", "Transformações silenciosas e desejos mais claros ganham força.", "A MALU acompanha sua intensidade com peças autênticas e seguras."],
-  ["Sagitário", "Biquíni esportivo ou maiô para movimento", "Proteção, água e liberdade: cuide do corpo que leva você tão longe.", "Viagens, experiências e vontade de ampliar horizontes aparecem no caminho.", "A MALU escolhe versatilidade para você ir da areia ao próximo destino."],
-  ["Capricórnio", "Maiô clássico ou biquíni de modelagem precisa", "Planeje pausas reais e não transforme descanso em mais uma tarefa.", "Construção paciente, reconhecimento e decisões que sustentam o futuro.", "A MALU combina com sua exigência em peças atemporais e confiáveis."],
-  ["Aquário", "Biquíni assimétrico ou maiô de design autoral", "Experimente sem comparação e escolha o que faz sentido para você.", "Ideias novas, grupos diferentes e uma temporada fora do padrão.", "A MALU abre espaço para sua individualidade com curadoria criativa."],
-  ["Peixes", "Biquíni fluido ou maiô em tons suaves", "Hidrate-se, faça pausas e proteja sua sensibilidade do excesso de sol e estímulo.", "Intuição, romance e inspiração para viver o verão com mais presença.", "A MALU acolhe seu imaginário com texturas, cores e delicadeza."],
-] as const
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -136,13 +122,11 @@ export default async function MateriaPage({ params }: { params: Promise<{ slug: 
               <p className="text-xs font-bold uppercase tracking-[.25em] text-[#d72f39]">Primavera-verão 2026</p>
               <h2 id="guia-signos-titulo" className="mt-3 font-serif text-4xl leading-none sm:text-5xl">O que a moda praia pede para cada signo</h2>
               <p className="mt-5 text-base leading-relaxed text-[#211b18]/70">Um pequeno mapa para escolher sua peça, cuidar de si e receber a nova estação com a curadoria da MALU.</p>
-              <div className="mt-8 overflow-x-auto border-2 border-[#211b18]">
-                <table className="min-w-[980px] w-full border-collapse text-left text-sm">
-                  <thead className="bg-[#211b18] text-[#f7efe5]">
-                    <tr>{["Signo", "Peça-chave", "Como se cuidar", "O que vem pela frente", "Como a MALU combina"].map((heading) => <th key={heading} scope="col" className="p-4 text-xs font-bold uppercase tracking-[.12em]">{heading}</th>)}</tr>
-                  </thead>
-                  <tbody>{zodiacRows.map(([sign, piece, care, future, malu], index) => <tr key={sign} className={index % 2 === 0 ? "bg-[#f0d9c4]" : "bg-[#f7efe5]"}><th scope="row" className="p-4 align-top font-serif text-xl font-normal">{sign}</th><td className="p-4 align-top leading-relaxed">{piece}</td><td className="p-4 align-top leading-relaxed">{care}</td><td className="p-4 align-top leading-relaxed">{future}</td><td className="p-4 align-top leading-relaxed">{malu}</td></tr>)}</tbody>
-                </table>
+              <div className="mt-8 grid items-start gap-8 border-2 border-[#211b18] bg-[#f0d9c4] p-5 sm:grid-cols-[180px_1fr] sm:p-7">
+                <div className="relative aspect-[3/4] overflow-hidden border-2 border-[#211b18]">
+                  <Image src="/magazine/horoscopo-signo-praia.png" alt="Mulher usando moda praia diante do mar" fill sizes="180px" className="object-cover" />
+                </div>
+                <p className="font-serif text-lg leading-relaxed sm:text-xl">Para <strong>Áries</strong>, a primavera-verão pede um maiô de recortes ou um biquíni vibrante, com proteção solar e espaço para novas aventuras. <strong>Touro</strong> encontra conforto no maiô estruturado ou no biquíni de cintura alta, enquanto <strong>Gêmeos</strong> pode apostar em um biquíni versátil com saída de praia para acompanhar convites inesperados. <strong>Câncer</strong> floresce em um maiô delicado e acolhedor; <strong>Leão</strong> ganha presença com brilho e cor; e <strong>Virgem</strong> combina com linhas limpas e escolhas práticas. Para <strong>Libra</strong>, a harmonia aparece no biquíni coordenado; <strong>Escorpião</strong> pede um maiô marcante e tons profundos; <strong>Sagitário</strong> precisa de liberdade em um biquíni esportivo ou maiô de movimento. <strong>Capricórnio</strong> encontra segurança em modelagens clássicas, <strong>Aquário</strong> se expressa em formas assimétricas e autorais, e <strong>Peixes</strong> pode escolher texturas suaves e fluidas. Em todos os signos, a estação convida ao autocuidado, a pausas reais e a encontros mais presentes. A curadoria da MALU combina com esse momento porque transforma personalidade em escolha: peças pensadas para a sua rotina, para o seu corpo e para a mulher que você está se tornando.</p>
               </div>
             </section>
           )}

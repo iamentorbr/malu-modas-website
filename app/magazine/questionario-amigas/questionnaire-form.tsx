@@ -1,0 +1,36 @@
+"use client"
+
+import { useState, useTransition } from "react"
+import { submitQuestionnaire } from "./actions"
+
+const questions = [
+  { key: "wantsToSee", title: "O que você quer ver na MALU Magazine?", options: ["Looks para a vida real", "Moda praia", "Beleza e autocuidado", "Histórias de mulheres", "Tendências e novidades", "Dicas para viajar"] },
+  { key: "preferredClothes", title: "Quais roupas você mais gosta de usar?", options: ["Vestidos", "Biquínis e maiôs", "Conjuntos", "Calças e peças básicas", "Peças coloridas", "Looks confortáveis"] },
+]
+
+function ChoiceGroup({ options, selected, onChange, multiple = true }: { options: string[]; selected: string[]; onChange: (value: string[]) => void; multiple?: boolean }) {
+  return <div className="flex flex-wrap gap-2">{options.map((option) => { const active = selected.includes(option); return <button key={option} type="button" onClick={() => onChange(multiple ? (active ? selected.filter((item) => item !== option) : [...selected, option]) : [option])} className={`border-2 px-3 py-2 text-left text-sm transition-colors ${active ? "border-[#d72f39] bg-[#d72f39] text-white" : "border-[#211b18]/30 bg-white/40 hover:border-[#211b18]"}`}>{option}</button> })}</div>
+}
+
+export default function QuestionnaireForm() {
+  const [pending, startTransition] = useTransition()
+  const [step, setStep] = useState(0)
+  const [firstName, setFirstName] = useState("")
+  const [age, setAge] = useState("")
+  const [answers, setAnswers] = useState<Record<string, string[]>>({ wantsToSee: [], preferredClothes: [] })
+  const [fabric, setFabric] = useState("")
+  const [size, setSize] = useState("")
+  const [travel, setTravel] = useState("")
+  const [error, setError] = useState("")
+  const [success, setSuccess] = useState("")
+
+  const submit = () => startTransition(async () => { setError(""); const response = await submitQuestionnaire({ firstName, age: Number(age), wantsToSee: answers.wantsToSee, preferredClothes: answers.preferredClothes, favoriteFabric: fabric, clothingSize: size, plansToTravel: travel }); if (response.ok) setSuccess(response.message ?? "Obrigada por responder!"); else setError(response.error ?? "Confira suas respostas.") })
+  if (success) return <section className="mt-12 border-2 border-[#d72f39] bg-[#d72f39] p-7 text-white sm:p-10"><p className="text-xs font-bold uppercase tracking-[.25em]">Resposta recebida</p><h2 className="mt-4 font-serif text-4xl">Obrigada, {firstName}.</h2><p className="mt-5 max-w-2xl text-lg leading-relaxed">{success}</p><div className="mt-8 flex flex-wrap gap-3"><a href="/magazine" className="border-2 border-white px-5 py-3 text-xs font-bold uppercase tracking-[.16em]">Ler a revista</a><a href="https://wa.me/5518997453135?text=Quero%20receber%20as%20novidades%20da%20MALU" target="_blank" rel="noreferrer" className="bg-white px-5 py-3 text-xs font-bold uppercase tracking-[.16em] text-[#d72f39]">Solicitar novidades</a></div></section>
+  return <section className="mt-12 border-2 border-[#211b18] bg-[#f0d9c4] p-6 sm:p-10"><div className="flex items-center justify-between border-b border-[#211b18]/20 pb-5"><p className="text-xs font-bold uppercase tracking-[.22em]">Questionário da MALU Magazine</p><p className="text-sm">{step + 1} / 5</p></div><div className="mt-8 space-y-8">
+    {step === 0 && <div className="grid gap-5 sm:grid-cols-2"><label className="text-sm font-bold">Seu primeiro nome<input value={firstName} onChange={(event) => setFirstName(event.target.value)} className="mt-2 w-full border-2 border-[#211b18]/30 bg-white/60 p-3 font-normal outline-none focus:border-[#d72f39]" placeholder="Como podemos chamar você?" /></label><label className="text-sm font-bold">Sua idade<input type="number" min="13" max="120" value={age} onChange={(event) => setAge(event.target.value)} className="mt-2 w-full border-2 border-[#211b18]/30 bg-white/60 p-3 font-normal outline-none focus:border-[#d72f39]" placeholder="Idade" /></label></div>}
+    {step === 1 && <div><h2 className="font-serif text-3xl">{questions[0].title}</h2><div className="mt-5"><ChoiceGroup options={questions[0].options} selected={answers.wantsToSee} onChange={(value) => setAnswers({ ...answers, wantsToSee: value })} /></div></div>}
+    {step === 2 && <div><h2 className="font-serif text-3xl">{questions[1].title}</h2><div className="mt-5"><ChoiceGroup options={questions[1].options} selected={answers.preferredClothes} onChange={(value) => setAnswers({ ...answers, preferredClothes: value })} /></div></div>}
+    {step === 3 && <div className="space-y-7"><label className="block text-sm font-bold">Qual tecido você mais usa?<ChoiceGroup options={["Algodão", "Linho", "Malha", "Viscose", "Renda", "Não tenho preferência"]} selected={fabric ? [fabric] : []} onChange={(value) => setFabric(value[0] ?? "")} multiple={false} /></label><label className="block text-sm font-bold">Qual é o seu tamanho?<ChoiceGroup options={["PP", "P", "M", "G", "GG", "XG"]} selected={size ? [size] : []} onChange={(value) => setSize(value[0] ?? "")} multiple={false} /></label></div>}
+    {step === 4 && <div><h2 className="font-serif text-3xl">Você pretende viajar nos próximos 3 meses?</h2><div className="mt-5"><ChoiceGroup options={["Sim, já estou planejando", "Talvez, ainda estou decidindo", "Não, vou aproveitar minha cidade", "Quero viajar, mas ainda não sei para onde"]} selected={travel ? [travel] : []} onChange={(value) => setTravel(value[0] ?? "")} multiple={false} /></div></div>}
+  </div>{error && <p className="mt-6 text-sm font-bold text-[#b42318]">{error}</p>}<div className="mt-8 flex justify-between gap-3"><button type="button" disabled={step === 0 || pending} onClick={() => setStep(step - 1)} className="border-2 border-[#211b18] px-5 py-3 text-xs font-bold uppercase tracking-[.16em] disabled:invisible">Voltar</button>{step < 4 ? <button type="button" onClick={() => setStep(step + 1)} className="bg-[#211b18] px-5 py-3 text-xs font-bold uppercase tracking-[.16em] text-white">Continuar</button> : <button type="button" disabled={pending} onClick={submit} className="bg-[#d72f39] px-5 py-3 text-xs font-bold uppercase tracking-[.16em] text-white disabled:opacity-50">{pending ? "Enviando..." : "Enviar respostas"}</button>}</div></section>
+}

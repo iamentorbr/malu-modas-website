@@ -3,9 +3,10 @@
 import { useState, useTransition, useCallback, useEffect } from "react"
 import {
   Search, ShoppingBag, Phone, MapPin, Tag, Calendar,
-  Pencil, Trash2, X, Check, LogOut, Users,
+  Pencil, Trash2, X, Check, LogOut, Users, ClipboardList,
 } from "lucide-react"
 import GerenciarVendedoras from "./gerenciar-vendedoras"
+import QuestionariosAdmin from "./questionarios-admin"
 import { listarCadastros, atualizarCadastro, deletarCadastro } from "@/app/sacola-amiga/actions"
 import {
   TAMANHOS, TIPOS_ROUPA, CORES, ESTILOS, DIAS_SEMANA, HORARIOS, COMO_CHEGOU,
@@ -242,7 +243,7 @@ function ModalEdicao({ cliente, onClose, onSalvo }: {
 }
 
 export default function PainelAdmin({ onLogout }: { onLogout: () => void }) {
-  const [aba, setAba] = useState<"clientes" | "vendedoras">("clientes")
+  const [aba, setAba] = useState<"clientes" | "vendedoras" | "questionarios">("clientes")
   const [busca, setBusca] = useState("")
   const [clientes, setClientes] = useState<SacolaAmiga[]>([])
   const [carregado, setCarregado] = useState(false)
@@ -317,12 +318,21 @@ export default function PainelAdmin({ onLogout }: { onLogout: () => void }) {
               <Users className="h-3.5 w-3.5" />
               Vendedoras
             </button>
+            <button type="button" onClick={() => setAba("questionarios")}
+              className={`inline-flex items-center gap-1.5 px-4 py-2.5 text-xs font-semibold border-b-2 transition-colors
+                ${aba === "questionarios"
+                  ? "border-accent text-foreground"
+                  : "border-transparent text-muted-foreground hover:text-foreground"}`}>
+              <ClipboardList className="h-3.5 w-3.5" />
+              Questionários
+            </button>
           </div>
         </div>
       </header>
 
       <main className="mx-auto max-w-4xl px-4 sm:px-6 py-8 space-y-6">
         {aba === "vendedoras" && <GerenciarVendedoras />}
+        {aba === "questionarios" && <QuestionariosAdmin />}
         {aba === "clientes" && <>
         {/* Stats */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">

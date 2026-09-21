@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { TestesMalu } from "./testes-malu"
 
@@ -63,6 +64,7 @@ export default function MagazinePage() {
             <h1 className="max-w-5xl font-serif text-[clamp(4rem,15vw,12rem)] leading-[.78] tracking-[-.08em] text-[#d72f39]">MALU<br /><span className="ml-[12%] text-[#211b18]">MAGAZINE</span></h1>
             <p className="mt-8 max-w-xl font-serif text-2xl italic leading-tight sm:text-3xl">A revista para quem quer vestir o desejo e viver a própria história.</p>
             <div className="mt-10 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[.2em]"><Link href="/magazine/catalogo/biquinis" className="rounded-full bg-[#d72f39] px-5 py-3 text-white transition-transform hover:-translate-y-1">Abrir catálogo</Link><a href="#conteudos" className="rounded-full border-2 border-[#211b18] px-5 py-3 transition-colors hover:bg-[#211b18] hover:text-[#f7efe5]">Ler a edição</a></div>
+            <div className="relative mx-auto mt-10 block aspect-[3/4] w-full max-w-[260px] rotate-2 overflow-hidden border-[8px] border-[#f7efe5] bg-white shadow-[10px_12px_0_#d72f39] lg:hidden"><Image src={coverImage} alt="Modelo usando biquíni estampado à beira da piscina" fill priority sizes="260px" className="object-cover" /><div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#211b18]/80 to-transparent p-4 pt-20 text-white"><p className="text-[10px] font-bold uppercase tracking-[.2em]">Edição verão</p><p className="mt-1 font-serif text-2xl italic">Troca de coleção</p></div></div>
           </div>
         </div>
       </section>

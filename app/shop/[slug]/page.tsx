@@ -17,11 +17,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = getShopProduct(slug)
   if (!product) return { title: "Produto não encontrado | MALU MODAS" }
   const description = `Confira ${product.name} por ${product.price} e consulte a disponibilidade pelo WhatsApp.`
+  const title = `${product.name} | MALU MODAS`
+  const pageUrl = `/shop/${product.slug}`
+  // Imagem leve (1200x630, JPG) criada para a prévia de compartilhamento.
+  // O endereço completo é montado a partir do metadataBase definido em app/layout.tsx.
+  const shareImage = `/og/products/${product.slug}.jpg`
   return {
-    title: `${product.name} | MALU MODAS`,
+    title,
     description,
-    openGraph: { title: `${product.name} | MALU MODAS`, description, images: [{ url: product.image, alt: product.name }] },
-    twitter: { card: 'summary_large_image', images: [product.image] },
+    alternates: { canonical: pageUrl },
+    openGraph: {
+      type: 'website',
+      locale: 'pt_BR',
+      siteName: 'MALU MODAS',
+      url: pageUrl,
+      title,
+      description,
+      images: [{ url: shareImage, width: 1200, height: 630, alt: product.name, type: 'image/jpeg' }],
+    },
+    twitter: { card: 'summary_large_image', title, description, images: [shareImage] },
   }
 }
 
@@ -30,7 +44,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = getShopProduct(slug)
   if (!product) notFound()
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://eusoumalu.com.br"
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.eusoumalu.com.br"
   const whatsappUrl = getWhatsappLink(product, siteUrl)
 
   return (

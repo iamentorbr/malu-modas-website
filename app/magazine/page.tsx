@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import Link from "next/link"
 import { TestesMalu } from "./testes-malu"
 
@@ -58,14 +57,13 @@ export default function MagazinePage() {
     <main className="min-h-screen bg-[#f7efe5] text-[#211b18]">
       <section className="relative overflow-hidden border-b-4 border-[#d72f39] bg-[#f0d9c4]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(255,255,255,.55),transparent_28%)]" />
-        <div className="relative mx-auto grid max-w-7xl items-end gap-8 px-6 pb-16 pt-10 lg:grid-cols-[1fr_0.75fr] lg:px-12 lg:pt-16">
-          <div className="order-2 lg:order-1">
+        <div className="relative mx-auto max-w-7xl px-6 pb-16 pt-10 lg:px-12 lg:pt-16">
+          <div className="max-w-5xl">
             <p className="mb-4 text-xs font-bold uppercase tracking-[.38em] text-[#d72f39]">MALU MODAS apresenta</p>
-            <h1 className="max-w-3xl font-serif text-[clamp(4rem,12vw,11rem)] leading-[.78] tracking-[-.08em] text-[#d72f39]">MALU<br /><span className="ml-[12%] text-[#211b18]">MAGAZINE</span></h1>
+            <h1 className="max-w-5xl font-serif text-[clamp(4rem,15vw,12rem)] leading-[.78] tracking-[-.08em] text-[#d72f39]">MALU<br /><span className="ml-[12%] text-[#211b18]">MAGAZINE</span></h1>
             <p className="mt-8 max-w-xl font-serif text-2xl italic leading-tight sm:text-3xl">A revista para quem quer vestir o desejo e viver a própria história.</p>
             <div className="mt-10 flex flex-wrap gap-3 text-xs font-bold uppercase tracking-[.2em]"><Link href="/magazine/catalogo/biquinis" className="rounded-full bg-[#d72f39] px-5 py-3 text-white transition-transform hover:-translate-y-1">Abrir catálogo</Link><a href="#conteudos" className="rounded-full border-2 border-[#211b18] px-5 py-3 transition-colors hover:bg-[#211b18] hover:text-[#f7efe5]">Ler a edição</a></div>
           </div>
-          <div className="relative order-1 mx-auto aspect-[3/4] w-full max-w-md rotate-2 overflow-hidden border-[10px] border-[#f7efe5] bg-white shadow-[16px_18px_0_#d72f39] lg:order-2"><Image src={coverImage} alt="Modelo usando biquíni estampado à beira da piscina" fill priority sizes="(max-width: 1024px) 90vw, 35vw" className="object-cover" /><div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#211b18]/80 to-transparent p-6 pt-28 text-white"><p className="text-xs font-bold uppercase tracking-[.25em]">Edição verão</p><p className="mt-1 font-serif text-3xl italic">Troca de coleção</p></div></div>
         </div>
       </section>
 
